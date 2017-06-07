@@ -1,0 +1,79 @@
+#container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 100%;
+}
+
+#target-box {
+  margin-top: 5%;
+  margin-left: 5%;
+  position: absolute;
+  width: 90%;
+  height: 80%;
+  background-color: #777777;
+  border-radius: 5%;
+}
+#target-circle0 {
+  margin-top: 5%;
+  margin-left: 5%;
+  position: absolute;
+  width: 90%;
+  height: 90%;
+  background-color: #ffffff;
+  border-radius: 50%;
+}
+#target-circle1{
+  margin-top: 9.5%;
+  margin-left: 9.5%;
+  position: absolute;
+  width: 81%;
+  height: 81%;
+  background-color: #000000;
+  border-radius: 50%;
+}
+#target-circle2{
+  margin-top: 12%;
+  margin-left: 12%;
+  position: absolute;
+  width: 76%;
+  height: 76%;
+  background-color: #0000ff;
+  border-radius: 50%;
+}
+#target-circle3{
+  margin-top: 15%;
+  margin-left: 15%;
+  position: absolute;
+  width: 70%;
+  height: 70%;
+  background-color: #ff0000;
+  border-radius: 50%;
+}
+#target-circle4{
+  margin-top: 22.5%;
+  margin-left: 22.5%;
+  position: absolute;
+  width: 55%;
+  height: 55%;
+  background-color: #ffff00;
+  border-radius: 50%;
+}
+
+#target-box:hover{
+      background-color: #5b5b5b
+}
+#target-circle0:hover{
+      background-color: #dbdbdb
+}
+#target-circle1:hover{
+      background-color: #2e2e2e
+}
+#target-circle2:hover{
+      background-color: #000099
+}
+#target-circle3:hover{
+      background-color: #990000
+}
+#target-circle4:hover{
+      background-color: #999900
+}
