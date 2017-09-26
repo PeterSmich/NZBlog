@@ -3,6 +3,6 @@
    $_SESSION["valid"] = false;
    $_SESSION["username"] = "";
    $_SESSION["password"] = "";
-   
-   header("Location: index.php");
+
+   header("Location:" . $_SESSION['redirect_url'] );
 ?>

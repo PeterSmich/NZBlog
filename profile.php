@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <?php
   session_start();
+  if(!isset($_SESSION['valid'])){
+    $_SESSION['valid'] = false;
+  }
   if( $_SESSION['valid'] == true){
   }else{    
     $_SESSION['nickname'] = 'Anonymus'; 
@@ -97,18 +100,19 @@ desired effect
       <section class="sidebar">
           <!-- Sidebar user panel -->
           <div class="user-panel" >
-              <div class="pull-left image" <?php if( $_SESSION['valid'] == 'true' ){ echo 'style="padding-bottom: 20%;"';}?> >
-                  <img src="dist/img/<?php if( $_SESSION['valid'] == true){ echo $_SESSION['username'];}else{ echo "anonymus";} ?>.png" class="img-circle" alt="User Image" />
+              <div class="pull-left image" style="padding-bottom: 20%;" >
+                  <img src="dist/img/avatars/<?php if( $_SESSION['valid'] == true){ echo $_SESSION['username'];}else{ echo "anonymus";} ?>.png" class="img-circle" alt="User Image" />
               </div>
               <div class="pull-left info">
-                  <p><?php echo $_SESSION['nickname'] ?></p>
+                  <p>Szervusz <?php echo $_SESSION['nickname'] ?>!</p>
                   <div>
                   <?php
                     if( $_SESSION['valid'] == 'true' ){
                       echo '<p><a href="profile.php"><button type="submit" name="profil" id="profil" class="btn btn-primary btn-xs"><i class="glyphicon glyphicon-user">Adatlap</i></button></a></br></p>';
-                      echo '<a href="logout.php"><button type="submit" name="sign_out" id="sign_out" class="btn btn-warning btn-xs"><i class="fa fa-sign-out">Kijelentkezés</i></button></a></br>';
+                      echo '<a href="logout.php"><button type="submit" name="sign_out" id="out" class="btn btn-warning btn-xs"><i class="fa fa-sign-out">Kijelentkezés</i></button></a></br>';
                     }else{
-                      echo '<a href="login.php"><button type="submit" name="sign_in" id="search-btn" class="btn btn-danger btn-xs"><i class="fa fa-sign-in">Bejelentkezés</i></button></a>';
+                      echo '<p><a href="login.php"><button type="submit" name="sign_in" id="in" class="btn btn-danger btn-xs"><i class="fa fa-sign-in">Bejelentkezés</i></button></a></p>';
+                      echo '<a href="register.php"><button type="submit" name="register" id="reg" class="btn btn-warning btn-xs"><i class="fa fa-user-plus">Regisztráció</i></button></a></br>';
                     }
                   ?>
                   </div>
@@ -129,24 +133,18 @@ desired effect
           <ul class="sidebar-menu">
               <li class="header">MAIN NAVIGATION</li>
               <li class="active"><!--set the correct active content!-->
-                  <a href="#">
+                  <a href="index.php">
                       <i class="fa fa-home"></i>
                       <span>Home</span>
                       <i class="label label-primary pull-right"></i>
                   </a>
               </li>
-              <li class="treeview">
-                  <a href="pages/ijaszda/ijaszda.php">
-                    <i class="fa fa-bullseye"></i>
-                      <span>Íjászda</span>
-                    <i class="fa fa-angle-left pull-right"></i>
-                  </a>
-                  <ul class="treeview-menu">
-                      <li><a href="pages/ijaszda/lovoter.php"><i class="fa fa-circle-o"></i> Lövőtér</a></li>
-                      <li><a href="pages/ijaszda/vegetaciok.php"><i class="fa fa-circle-o"></i> Vegetációk</a></li>
-                      <li><a href="pages/ijaszda/mentes.php"><i class="fa fa-circle-o"></i> Mentés</a></li>
-                  </ul>
-                </li>
+              <li>
+                <a href="../ijaszda/ijaszda.php">
+                  <i class="fa fa-bullseye"></i>
+                    <span>Íjászda</span>
+                </a>
+              </li>
               <li><a href="pages/widgets.html"><i class="fa fa-book"></i> <span>Documentation</span></a></li>
         </ul>
       </section>
@@ -162,7 +160,7 @@ desired effect
         <small>Adatlap</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#" style="color:#ffffff;"><i class="fa fa-home"></i> Home</a></li>
+        <li><a href="index.php" style="color:#ffffff;"><i class="fa fa-home"></i> Home</a></li>
         <li class="active" style="color:#ffffff;">Adatlap</li>
       </ol>
     </section>
@@ -179,7 +177,7 @@ desired effect
 
       <div class="callout callout-info">
         <h4>Adatlap megjelenítése</h4>
-        <p>Szerbusz kedves <?php echo $_SESSION['nickname'] ?>! A honlappal még naggyon sok munka van de amint látod szigorúan monoton felylődik. Hamarosan az adatlapodat is megtekintheted. :)</p>
+        <p>Szervusz kedves <?php echo $_SESSION['nickname'] ?>! A honlappal még naggyon sok munka van de amint látod szigorúan monoton felylődik. Hamarosan az adatlapodat is megtekintheted. :)</p>
       </div>
 
       <div class="callout callout-danger">

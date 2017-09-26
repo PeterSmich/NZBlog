@@ -2,9 +2,18 @@
 <?php
   ob_start();
   session_start();
-  if( $_SESSION['valid'] == true){ 
-    header("Location: index.php");
+  if(!isset($_SESSION['valid'])){
+    $_SESSION['valid'] = false;
   }
+  if( $_SESSION['valid'] == true){
+    header("Location:" . $_SESSION['redirect_url']);
+  }
+
+  // Load the driver
+  require_once("rdb/rdb.php");
+
+  // Connect to localhost
+  $conn = r\connect('localhost');
 ?>
 <html>
 <head>
@@ -60,8 +69,8 @@
 </head>
 <body class="hold-transition login-page">
 <div class="login-box">
-  <div class="login-logo">
-    <a style="color: #054e70;"><b style="color: #098bc6;">CHLoud</b>Services</a>
+  <div class="login-logo" href="index.php">
+    <a href="index.php" style="color: #054e70;"><b style="color: #098bc6;">CHLoud</b>Services</a>
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
@@ -72,38 +81,43 @@
         $type_b = 'alert-warning';
         $type_p = 'fa-warning';
 
-        if (isset($_POST['login']) && !empty($_POST['username']) 
+        if (isset($_POST['login']) && !empty($_POST['username'])
            && !empty($_POST['password'])) {
 
-           if ($_POST['username'] == 'admin' && 
-              $_POST['password'] == '1234') {
+           $result = r\db('chloudservices')->table('users')->filter(array('id' => $_POST['username']))->run($conn);
+           $num = r\db('chloudservices')->table('users')->filter(array('id' => $_POST['username']))->count()->run($conn);
+           $res = null;
+           foreach ($result as $doc){
+             $res = $doc;
+           }
+           if ($_POST['password'] == $res['userpassport'] && $num == 1) {
               $_SESSION['valid'] = true;
-              $_SESSION['username'] = 'admin';
-              $_SESSION['nickname'] = 'Admin';
+              $_SESSION['username'] = $_POST['username'];
+              $_SESSION['nickname'] = $res['nickname'];
 
-              $msg = 'You have entered valid use name and password';
+              $msg = 'Sikeres bejelentkezés!';
               $type_b = 'alert-success';
               $type_p = 'fa-check';
-              header('Refresh: 1; URL = index.php');
+              header('Refresh: 1; URL = ' . $_SESSION['redirect_url']);
            }else {
               $_SESSION['valid'] = false;
-              $_SESSION['username'] = 'anonymus';  
-              $msg = 'Wrong username or password';
+              $_SESSION['username'] = 'anonymus';
+              $msg = 'Hibás email cím vagy jelszó!';
               $type_b = 'alert-danger';
               $type_p = 'fa-ban';
            }
         }
      ?>
     </div>
-    <form role = "form" 
-            action = "<?php echo htmlspecialchars($_SERVER['PHP_SELF']); 
+    <form role = "form"
+            action = "<?php echo htmlspecialchars($_SERVER['PHP_SELF']);
             ?>" method = "post">
       <div class="form-group has-feedback">
-        <input type="text" class="form-control" name = "username" placeholder="Email">
-        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+        <input type="text" class="form-control" name = "username" placeholder="Felhasználónév" <?php if(isset($_POST['login']) && !empty($_POST['username'])){ echo 'value="'; echo $_POST['username']; echo '"';} ?>>
+        <span class="glyphicon glyphicon-user form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input type="password" class="form-control" name = "password" placeholder="Password">
+        <input type="password" class="form-control" name = "password" placeholder="Jelszó" <?php if(isset($_POST['login']) && !empty($_POST['password'])){ echo 'value="'; echo $_POST['password']; echo '"';} ?>>
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
       <button type="submit" name = "login" class="btn btn-primary btn-block btn-flat">Bejelentkezés</button>
@@ -111,11 +125,16 @@
 
     <a href="#">Elgelejtettem a jelszavamat :(</a><br>
     <a href="register.php" class="text-center">Regisztráció</a>
-    <div class="alert <?php echo $type_b ?> alert-dismissible">
-      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-      <h4><i class="icon fa <?php echo $type_p ?>"></i> Bejelentkezés:</h4>
-      <p><?php echo $msg ?></p>
-    </div>
+    <?php
+      if(isset($_POST['login'])){
+        echo
+        '<div class="alert '; echo $type_b; echo ' alert-dismissible">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+          <h4><i class="icon fa '; echo $type_p; echo '"></i> Bejelentkezés:</h4>
+          <p>'; echo $msg; echo '</p>
+        </div>';
+      }
+    ?>
 
   </div>
   <!-- /.login-box-body -->
