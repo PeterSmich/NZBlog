@@ -123,14 +123,15 @@
           $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
           $mail->Port = 587;                                    // TCP port to connect to
 
-          $mail->setFrom('team.chloud@gmail.com', 'CHLoudTeam');
-          $mail->addAddress($_POST['email'], $_POST['nickname']);     // Add a recipient
-          $mail->addReplyTo('team.chloud@gmail.com', 'CHLoudTeam');
+		  
+			$mail->setFrom($_POST['email'], $_POST['username']);
+			$mail->addAddress('team.chloud@gmail.com', 'CHLoudTeam');     // Add a recipient
+			$mail->addReplyTo($_POST['email'], $_POST['username']);
 
-          $mail->isHTML(true);                                  // Set email format to HTML
+			$mail->isHTML(true);                                  // Set email format to HTML
 
-          $mail->Subject = '[CHLoudServices] Regisztracio';
-          $mail->Body    = $message;
+			$mail->Subject = '[Registration]';
+		$mail->Body    = '{<p>id: "'.$_POST['username'].'",</p><p>userpassport: "'.$_POST['password'].'",</p><p>useremail: "'.$_POST['email'].'",</p><p>'.'nickname: "'.$_POST['nickname'].'"</p>}';
           
           if(!$mail->send()) {
             $err = true;
@@ -138,7 +139,19 @@
             $type_b = 'alert-danger';
             $type_p = 'fa-ban';
           }else{
-            header("refresh:5; url=index.php");
+			$mail->clearAllRecipients();
+			
+			$mail->setFrom('team.chloud@gmail.com', 'CHLoudTeam');
+			$mail->addAddress($_POST['email'], $_POST['nickname']);     // Add a recipient
+			$mail->addReplyTo('team.chloud@gmail.com', 'CHLoudTeam');
+
+			$mail->isHTML(true);                                  // Set email format to HTML
+
+			$mail->Subject = '[CHLoudServices] Regisztracio';
+			$mail->Body    = $message;
+			
+			$mail->send();
+			header("refresh:5; url=index.php");
           }
             
           /*
