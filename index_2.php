@@ -6,7 +6,7 @@
   }
   if( $_SESSION['valid'] == true){
   }else{    
-    $_SESSION['nickname'] = 'Anonymus';  
+    $_SESSION['nickname'] = 'Anonymus';
   }
 ?>
 <!--
