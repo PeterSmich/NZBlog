@@ -16,9 +16,6 @@
 	// Load the driver
 	require 'PHPsolr/win/vendor/autoload.php';
 
-	// check solarium version available
-	echo 'Solarium library version: ' . Solarium\Client::VERSION . ' - ';
-
 	// create a client instance
 	$host = getHostByName(getHostName());
 	$config = array(
