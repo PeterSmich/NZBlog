@@ -58,6 +58,7 @@
               </ul>
             </li>
             <li><a href=<?php echo $page_level; ?>pages/widgets.html><i class="fa fa-book"></i> <span>Documentation</span></a></li>
+            <li><a href=<?php echo $page_level; ?>pages/blog/NZ/index.php><i class="fa fa-globe"></i> <span>Új-Zéland</span></a></li>
       </ul>
     </section>
     <!-- /.sidebar -->
