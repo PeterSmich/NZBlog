@@ -39,7 +39,7 @@
 	<meta name="twitter:card" content="" />
 
 	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-	<link rel="shortcut icon" href="favicon.ico">
+	<link rel="shortcut icon" href="nz.ico">
 
 	<link href='https://fonts.googleapis.com/css?family=Work+Sans:400,300,600,400italic,700' rel='stylesheet' type='text/css'>
 	
@@ -47,7 +47,7 @@
 	<link rel="stylesheet" href="css/animate.css">
 	
 	<!-- Magnific Popup -->
-	<link rel="stylesheet" href="css/magnific-popup.css">
+	<!-- <link rel="stylesheet" href="css/magnific-popup.css"> -->
 	<!-- Bootstrap  -->
 	<link rel="stylesheet" href="css/bootstrap.css">
 	<!-- Icomoon Icon Fonts-->
@@ -69,13 +69,22 @@
 	<!-- </style> -->
 	</head>
 	<body>
-	
 	<div id="fh5co-wrap">
-		<header id="fh5co-header">
+	<section id="menu">
+		<header  id="fh5co-header">
 			<div class="container">
 				<nav class="fh5co-main-nav">
 					<ul>
-						<li class="#"><a href="index.html"><span>Blog</span></a></li>
+						<div class="dropdown">
+							<div class="dropbtn">
+								<li class="#"><a href="#menu"><span>Blog</span></a>
+									<div class="dropdown-content">
+										<a href="#terveink">Terveink</a>
+										<a href="#hamarosan">Hamarosan</a>
+									</div>
+								</li>
+							</div>
+						</div>
 						<li><a href="#"><span>Statisztikák</span></a></li>
 						<li><a href="#"><span>Rólunk</span></a></li>
 						<li><a href="#"><span>Kapcsolat</span></a></li>
@@ -97,6 +106,8 @@
 				</div>
 			</div>
 		</div>
+		</section>
+		<section id="terveink">
 		<div class="fh5co-section">
 			<div class="container">
 				<div class="row">
@@ -131,6 +142,8 @@
 			</div>
 		</div>
 
+		</section>
+		<section id="hamarosan">
 		<div class="fh5co-parallax" style="background-image: url(images/flight.jpg);" data-stellar-background-ratio="0.5">
 			<div class="overlay"></div>
 			<div class="container">
@@ -143,7 +156,7 @@
 				</div>
 			</div>
 		</div>
-
+<div>
 		<!-- <div class="fh5co-section"> -->
 			<!-- <div class="container"> -->
 				
@@ -235,7 +248,7 @@
 
 			<!-- </div> -->
 		<!-- </div> -->
-
+</div>
 	</div> <!-- END fh5co-wrap -->
 
 
