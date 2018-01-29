@@ -259,8 +259,8 @@ include("navigation.php");
                                         <div class="col-md-6 padding-leftright-null">
                                             <div class="content">
                                                 <h3>'.$doc['title'].'</h3>
-                                                <span class="date">'.$doc['timestamp'].'</span>
-                                                <p>'.$doc['sort_contetnt'].'</p>
+                                                <span class="date">'.$doc['timestamp']->format('Y-m-d H:i:s').'</span>
+                                                <p>'.$doc['sort_content'].'</p>
                                             </div>
                                         </div>
                                         <a href="blog.php?blog="'.$doc['title'] .'class="link"></a>
