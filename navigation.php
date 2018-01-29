@@ -1,65 +1,92 @@
-<aside class="main-sidebar">
-    <!-- sidebar: style can be found in sidebar.less -->
-    <section class="sidebar">
-        <!-- Sidebar user panel -->
-        <div class="user-panel" >
-            <div class="pull-left image" style="padding-bottom: 20%;">
-                <img src=<?php echo $page_level?>dist/img/avatars/<?php if( $_SESSION['valid'] == true){ echo $_SESSION['username'];}else{ echo "anonymus";} ?>.png class="img-circle" alt="User Image" />
-            </div>
-            <div class="pull-left info">
-                <p>Szervusz <?php echo $_SESSION['nickname'] ?>!</p>
-                <div>
-                <?php
-                  if( $_SESSION['valid'] == 'true' ){
-                    echo '<p><a href=';echo $page_level; echo 'profile.php><button type="submit" name="profil" id="profil" class="btn btn-primary btn-xs"><i class="glyphicon glyphicon-user">Adatlap</i></button></a></br></p>';
-                    echo '<a href=';echo $page_level; echo 'logout.php><button type="submit" name="sign_out" id="out" class="btn btn-warning btn-xs"><i class="fa fa-sign-out">Kijelentkezés</i></button></a></br>';
-                  }else{
-                    echo '<p><a href=';echo $page_level; echo 'login.php><button type="submit" name="sign_in" id="in" class="btn btn-danger btn-xs"><i class="fa fa-sign-in">Bejelentkezés</i></button></a></p>';
-                    echo '<a href=';echo $page_level; echo 'register.php><button type="submit" name="register" id="reg" class="btn btn-warning btn-xs"><i class="fa fa-user-plus">Regisztráció</i></button></a></br>';
-                  }
-                ?>
+    <body>
+      
+        <!--  loader  -->
+        <!-- <div id="myloader"> -->
+            <!-- <span class="loader"> -->
+                <!-- <div class="inner-loader"></div> -->
+            <!-- </span> -->
+        <!-- </div> -->
+        
+        <!--  Main Wrap  -->
+        <div id="main-wrap" class="full-width">
+            <!--  Header & Menu  -->
+            <header id="header" class="fixed transparent full-width">
+                <div class="container">
+                    <nav class="navbar navbar-default white">
+                        <!--  Header Logo  -->
+                        <div id="logo">
+                            <a class="navbar-brand" href="index.html">
+                                <img src="assets/img/logo.png" class="normal" alt="logo">
+                                <img src="assets/img/logo%402x.png" class="retina" alt="logo">
+                                <img src="assets/img/logo_white.png" class="normal white-logo" alt="logo">
+                                <img src="assets/img/logo_white%402x.png" class="retina white-logo" alt="logo">
+                            </a>
+                        </div>
+                        <!--  END Header Logo  -->
+                        <!--  Classic menu, responsive menu classic  -->
+                        <div id="menu-classic">
+                            <div class="menu-holder">
+                                <ul>
+									<?php
+										if($_SESSION['lang']=='hun'){
+											echo '
+                                    <li>
+                                        <a href=index.php'; if($page_type == "index"){echo 'class="active-item"';} echo' >Kezdőlap</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)" ';if($page_type == "blog"){echo ' class="active-item"';} echo'>Blog</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)" ';if($page_type == "galery"){echo ' class="active-item"';} echo'>Képgaléria</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)" ';if($page_type == "statistics"){echo ' class="active-item"';} echo'>Statisztikák</a>
+                                    </li>
+                                    <!-- <li>
+                                        <a href="javascript:void(0)" ';if($page_type == "sup"){echo ' class="active-item"';} echo'>Támogatóink</a>
+                                    </li> -->
+                                    <li>
+                                        <a href="javascript:void(0)" ';if($page_type == "contact"){echo ' class="active-item"';} echo'>Kapcsolat</a>
+                                    </li>';
+										}else{
+											echo'
+                                    <li>
+                                        <a href=index.php'; if($page_type == "index"){echo ' class="active-item"';} echo' >Home</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)" ';if($page_type == "blog"){echo ' class="active-item"';} echo'>Blog</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)" ';if($page_type == "galery"){echo ' class="active-item"';} echo'>Galery</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)" ';if($page_type == "statistics"){echo ' class="active-item"';} echo'>Statistics</a>
+                                    </li>
+                                    <!-- <li>
+                                        <a href="javascript:void(0)" ';if($page_type == "sup"){echo ' class="active-item"';} echo'>Támogatóink</a>
+                                    </li> -->
+                                    <li>
+                                        <a href="javascript:void(0)" ';if($page_type == "contact"){echo ' class="active-item"';} echo'>Contact</a>
+                                    </li>';
+										}
+									?>
+									<li>
+										<a href="index.php?lang=en" style="margin-left: 30px;margin-right: 0px;"><img src="assets/img/british-flag-icon.png" alt="British flag" height="25" width="25"></a>
+										<a href="index.php?lang=hun"  style="margin-left: 0px;"><img src="assets/img/Hungary-flag-icon.png" alt="Magyar zászló" height="25" width="25"></a>
+									</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!--  END Classic menu, responsive menu classic  -->
+                        <!--  Button for Responsive Menu Classic  -->
+                        <div id="menu-responsive-classic">
+                            <div class="menu-button">
+                                <span class="bar bar-1"></span>
+                                <span class="bar bar-2"></span>
+                                <span class="bar bar-3"></span>
+                            </div>
+                        </div>
+                        <!--  END Button for Responsive Menu Classic  -->
+                    </nav>
                 </div>
-            </div>
-        </div>
-
-        <!-- search form
-        <form action="#" method="get" class="sidebar-form">
-            <div class="input-group">
-                <input type="text" name="q" class="form-control" placeholder="Search..."/>
-                <span class="input-group-btn">
-                    <button type='submit' name='search' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i></button>
-                </span>
-            </div>
-        </form>
-        <!-- /.search form -->
-        <!-- sidebar menu: : style can be found in sidebar.less -->
-        <ul class="sidebar-menu">
-            <li class="header">MAIN NAVIGATION</li>
-            <li <?php if($page_type == "index"){echo 'class = "active"';} ?>><!--set the correct active content!-->
-                <a href=<?php echo $page_level; ?>index.php>
-                    <i class="fa fa-home"></i>
-                    <span>Home</span>
-                    <i class="label label-primary pull-right"></i>
-                </a>
-            </li>
-            <li <?php if($page_type == "ijaszda"){echo 'class = "active"';} ?>>
-              <a href=<?php echo $page_level; ?>pages/ijaszda/ijaszda.php>
-                <i class="fa fa-bullseye"></i>
-                  <span>Íjászda</span>
-              </a>
-            </li>
-            <li <?php if($page_type == "smarthome"){echo 'class = "active"';} ?>>
-              <a>
-                <i class="fa fa-bank"></i>
-                  <span>SmartHome</span>
-              </a>
-              <ul class="treeview-menu">
-                <li><a href=<?php echo $page_level; ?>pages/smarthome/andrisszoba.php><i class="fa fa-circle-o"></i> Andris Szobája</a></li>
-              </ul>
-            </li>
-            <li><a href=<?php echo $page_level; ?>pages/widgets.html><i class="fa fa-book"></i> <span>Documentation</span></a></li>
-            <li><a href=<?php echo $page_level; ?>pages/blog/NZ/index.php><i class="fa fa-globe"></i> <span>Új-Zéland</span></a></li>
-      </ul>
-    </section>
-    <!-- /.sidebar -->
-</aside>
+            </header>
