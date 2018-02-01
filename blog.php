@@ -45,7 +45,7 @@ include("navigation.php");
                                 <?php
 									if($_SESSION['lang'] == 'hun') {
 										echo '
-										<h1 class="white flex-animation" style="font-family:lotr;font-size:110px;">A történetünk<br></h1>
+										<h1 class="white flex-animation" style="font-family:lotr;font-size:110px;">Egyszer volt,<br><br> hol nemvolt<br></h1>
 										<h2 class="white flex-animation" style="font-family:lotr;font-size:35px;">Kalandozas Uj-Zelandon</h2>';
 									} else {
 										echo '
@@ -59,24 +59,40 @@ include("navigation.php");
                     </ul>
                 </div>
                 <!--  END Slider  -->
-                <div id="home-wrap" class="content-section fullpage-wrap row grey-background">
+				
+				<section id="masonry-filters">
+					<!--  Filters  -->
+					<div class="fixed transparent fullpage-wrap" id="filterStrip" >
+						<div class="text-center">
+							<ul class="filters ">
+								<li data-filter="*" class="is-checked">All</li>
+								<li data-filter=".nature">Nature</li>
+								<li data-filter=".adventure">Adventure</li>
+								<li data-filter=".lake">Lake</li>
+								<li data-filter=".mountain">Mountain</li>
+								<li>
+								<form class="search-form" >
+									<div class="form-input">
+										<input type="text" placeholder="Search..." style="width: 100px; border: none;">
+										<span class="form-button">
+											<button type="button">
+												<i class="icon ion-ios-search-strong"></i>
+											</button>
+										</span>
+									</div>
+								</form>
+								</li>
+								<li style="line-height: 40px; ">
+									<button onclick="topFunction()" id="topBttn" ><?php if($_SESSION['lang'] == 'hun'){echo'Tetejére';}else{echo'Top';}?></button>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<!--  END Filters  -->
+				</section>
+                <div id="home-wrap" class="content-section fullpage-wrap row grey-background" id="contentStrip">
                     <div class="container">
                         <div class="col-md-11 padding-leftright-null">
-							<section id="masonry-filters" class="text">
-								<!--  Filters  -->
-								<div class="row margin-null">
-									<div class="col-sm-12 padding-leftright-null text-center">
-										<ul class="col-md-12 filters padding-leftright-null">
-											<li data-filter="*" class="is-checked">All</li>
-											<li data-filter=".nature">Nature</li>
-											<li data-filter=".adventure">Adventure</li>
-											<li data-filter=".lake">Lake</li>
-											<li data-filter=".mountain">Mountain</li>
-										</ul>
-									</div>
-								</div>
-								<!--  END Filters  -->
-							</section>
                             <!--  News Section  -->
                             <section id="news" class="page">
                                 <div class="news-items equal one-columns">
@@ -142,15 +158,6 @@ include("navigation.php");
                             </section>
                             <!--  END News Section  -->
                         </div>
-                        <!--  Right Sidebar  -->
-                        <div class="col-md-2 text" style="position: fixed; top: 50px; z-index: 1; right: 0;">
-                            <aside class="sidebar">
-								<div class="col-xs-6 col-sm-3 padding-sm">
-									<a href="#" class="btn-alt medium margin-null" style="padding-left: 15px; padding-right: 15px;" onclick="topFunction()" id="topBttn" title="Go to top">Top<i class="icon ion-ios-arrow-up"></i></a>
-								</div>
-                            </aside>
-                        </div>
-                        <!--  END Right Sidebar  -->
                         <div class="row margin-leftright-null">
                             <!--  Navigation  -->
                             <section id="nav" class="padding-top-null grey-background">
@@ -269,11 +276,14 @@ include("navigation.php");
 			window.onscroll = function() {scrollFunction()};
 
 			function scrollFunction() {
-				downpx = 550;
-				if (document.body.scrollTop > downpx || document.documentElement.scrollTop > downpx) {
-					document.getElementById("topBttn").style.display = "block";
+				if (document.body.scrollTop > 570 || document.documentElement.scrollTop > 570) {
+					document.getElementById("filterStrip").style.position = "fixed";
+					document.getElementById("filterStrip").style.top = "80px";
+					document.getElementById("contentStrip").style.paddingTop = "1000px";
 				} else {
-					document.getElementById("topBttn").style.display = "none";
+					document.getElementById("filterStrip").style.position = "static";
+					document.getElementById("filterStrip").style.zIndex = "2";
+					document.getElementById("contentStrip").style.paddingTop = "0px";
 				}
 			}
 			function topFunction() {
