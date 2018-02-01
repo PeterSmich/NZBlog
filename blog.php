@@ -62,7 +62,7 @@ include("navigation.php");
 				
 				<section id="masonry-filters">
 					<!--  Filters  -->
-					<div class="fixed transparent fullpage-wrap" id="filterStrip" >
+					<div class="fixed transparent fullpage-wrap" id="filterStrip" style="height: 40px;" >
 						<div class="text-center">
 							<ul class="filters ">
 								<li data-filter="*" class="is-checked">All</li>
@@ -73,7 +73,7 @@ include("navigation.php");
 								<li>
 								<form class="search-form" >
 									<div class="form-input">
-										<input type="text" placeholder="Search..." style="width: 100px; border: none;">
+										<input type="text" placeholder="Search..." style="width: 100px; height:35px; border: none;">
 										<span class="form-button">
 											<button type="button">
 												<i class="icon ion-ios-search-strong"></i>
@@ -90,7 +90,7 @@ include("navigation.php");
 					</div>
 					<!--  END Filters  -->
 				</section>
-                <div id="home-wrap" class="content-section fullpage-wrap row grey-background" id="contentStrip">
+                <div id="home-wrap" class="content-section fullpage-wrap row grey-background" >
                     <div class="container">
                         <div class="col-md-11 padding-leftright-null">
                             <!--  News Section  -->
@@ -279,11 +279,13 @@ include("navigation.php");
 				if (document.body.scrollTop > 570 || document.documentElement.scrollTop > 570) {
 					document.getElementById("filterStrip").style.position = "fixed";
 					document.getElementById("filterStrip").style.top = "80px";
-					document.getElementById("contentStrip").style.paddingTop = "1000px";
+					document.getElementById("filterStrip").style.width = "100%";
+					document.getElementById("filterStrip").style.marginLeft = "-50px";
+					document.getElementById("home-wrap").style.paddingTop = "40px";
 				} else {
 					document.getElementById("filterStrip").style.position = "static";
 					document.getElementById("filterStrip").style.zIndex = "2";
-					document.getElementById("contentStrip").style.paddingTop = "0px";
+					document.getElementById("home-wrap").style.paddingTop = "0px";
 				}
 			}
 			function topFunction() {
