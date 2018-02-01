@@ -10,16 +10,15 @@
                             <h6 class="heading white margin-bottom-extrasmall">There&Back</h6>
                             <ul class="sitemap">
                                 <li><a href="index.php">Home</a></li>
-                                <li><a href="#">Blog</a></li>
+                                <li><a href="blog.php">Blog</a></li>
                                 <li><a href="#">Galeira</a></li>
-                                <li><a href="#">Contact</a></li>
+                                <li><a href="contact.php">Contact</a></li>
                             </ul>
                         </div>
                         <div class="col-sm-4 col-md-4 padding-leftright-null">
                             <h6 class="heading white margin-bottom-extrasmall">Contact Us</h6>
                             <ul class="info">
-                                <li>Phone <a href="#">-</a></li>
-                                <li>Mail <a href="#">-</a></li>
+                                <li>Mail <a href="#">info.thereandback@gmail</a></li>
                             </ul>
                         </div>
                         <!-- <div class="col-md-4 padding-leftright-null">
@@ -44,8 +43,7 @@
                             </div>
                             <div class="col-md-4 padding-leftright-null">
                                 <ul class="social">
-                                    <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
+                                    <li><a href="https://www.youtube.com/channel/UCm_j1KDKKAywYH-PJ1XE4HA/"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -59,16 +57,15 @@
                             <h6 class="heading white margin-bottom-extrasmall">There&Back</h6>
                             <ul class="sitemap">
                                 <li><a href="index.php">Kezdőlap</a></li>
-                                <li><a href="#">Blog</a></li>
+                                <li><a href="blog.php">Blog</a></li>
                                 <li><a href="#">Képgléria</a></li>
-                                <li><a href="#">Kapcsolatok</a></li>
+                                <li><a href="contact.php">Kapcsolatok</a></li>
                             </ul>
                         </div>
                         <div class="col-sm-4 col-md-4 padding-leftright-null">
                             <h6 class="heading white margin-bottom-extrasmall">Lépj velünk kapcsolatba</h6>
                             <ul class="info">
-                                <li>Phone <a href="#">-</a></li>
-                                <li>Mail <a href="#">-</a></li>
+                                <li>Mail <a href="#">info.thereandback@gmail.com</a></li>
                             </ul>
                         </div>
                         <!-- <div class="col-md-4 padding-leftright-null">
@@ -93,8 +90,7 @@
                             </div>
                             <div class="col-md-4 padding-leftright-null">
                                 <ul class="social">
-                                    <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
+                                    <li><a href="https://www.youtube.com/channel/UCm_j1KDKKAywYH-PJ1XE4HA/"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
                                 </ul>
                             </div>
                         </div>
