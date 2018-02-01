@@ -170,8 +170,8 @@ include("navigation.php");
                                 <div class="col-md-4 padding-leftright-null">
                                     <div class="text padding-md-bottom-null">
                                         <i class="pd-icon-juice service margin-bottom-null"></i>
-                                        <h6 class="heading margin-bottom-extrasmall"><?php if($_SESSION['lang']=='hun'){echo 'Elfogyasztott alkohol';}else{echo 'Comsumed alcohol';}?></h6>
-                                        <p class="margin-bottom-null"><?php if($_SESSION['lang']=='hun'){echo $alc.' Egység';}else{echo $alc.' Unit';}?></p>
+                                        <h6 class="heading margin-bottom-extrasmall"><?php if($_SESSION['lang']=='hun'){echo 'Pihenés';}else{echo 'Resting';}?></h6>
+                                        <p class="margin-bottom-null"><?php if($_SESSION['lang']=='hun'){echo $alc.' Óra';}else{echo $alc.' Hours';}?></p>
                                     </div>
                                 </div>
                                 <div class="col-md-4 padding-leftright-null">
@@ -349,9 +349,8 @@ include("navigation.php");
                                    <div class="content">
                                        <img src="assets/img/balintczucz.jpg" alt="BC">
                                        <ul class="social">
-                                           <li><a href="#"><i class="icon ion-social-instagram"></i></a></li>
-                                           <li><a href="#"><i class="icon ion-social-snapchat"></i></a></li>
-                                           <li><a href="#"><i class="fa fa-youtube-play"></i></a></li>
+                                           <li><a href="instagram.com/balintczucz"><i class="icon ion-social-instagram"></i></a></li>
+                                           <li><a href="https://www.youtube.com/channel/UCm_j1KDKKAywYH-PJ1XE4HA/"><i class="fa fa-youtube-play"></i></a></li>
                                        </ul>
                                    </div>
                                    <div class="description text-center">
@@ -362,9 +361,8 @@ include("navigation.php");
                                    <div class="content">
                                        <img src="assets/img/andraskovach.jpg" alt="AK">
                                        <ul class="social">
-                                           <li><a href="#"><i class="icon ion-social-instagram"></i></a></li>
-                                           <li><a href="#"><i class="icon ion-social-snapchat"></i></a></li>
-                                           <li><a href="#"><i class="fa fa-youtube-play"></i></a></li>
+                                           <li><a href="instagram.com/andras.kovach"><i class="icon ion-social-instagram"></i></a></li>
+                                           <li><a href="https://www.youtube.com/channel/UCm_j1KDKKAywYH-PJ1XE4HA/"><i class="fa fa-youtube-play"></i></a></li>
                                        </ul>
                                    </div>
                                    <div class="description text-center">
@@ -375,9 +373,7 @@ include("navigation.php");
                                    <div class="content">
                                        <img src="assets/img/tamaskovach.jpg" alt="TK">
                                        <ul class="social">
-                                           <li><a href="#"><i class="icon ion-social-instagram"></i></a></li>
-                                           <li><a href="#"><i class="icon ion-social-snapchat"></i></a></li>
-                                           <li><a href="#"><i class="fa fa-youtube-play"></i></a></li>
+                                           <li><a href="https://www.youtube.com/channel/UCm_j1KDKKAywYH-PJ1XE4HA/"><i class="fa fa-youtube-play"></i></a></li>
                                        </ul>
                                    </div>
                                    <div class="description text-center">
@@ -388,7 +384,7 @@ include("navigation.php");
                                    <div class="content">
 										<img src="assets/img/peterkovach.jpg" alt="PK">
                                        <ul class="social">
-                                           <li><a href="#"><i class="fa fa-youtube-play"></i></a></li>
+                                           <li><a href="https://www.youtube.com/channel/UCm_j1KDKKAywYH-PJ1XE4HA/"><i class="fa fa-youtube-play"></i></a></li>
                                        </ul>
                                    </div>
                                    <div class="description text-center">
