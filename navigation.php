@@ -46,7 +46,7 @@
                                         <a href="javascript:void(0)" ';if($page_type == "sup"){echo ' class="active-item"';} echo'>Támogatóink</a>
                                     </li> -->
                                     <li>
-                                        <a href="javascript:void(0)" ';if($page_type == "contact"){echo ' class="active-item"';} echo'>Kapcsolat</a>
+                                        <a href="contact.php" ';if($page_type == "contact"){echo ' class="active-item"';} echo'>Kapcsolat</a>
                                     </li>';
 										}else{
 											echo'
@@ -66,7 +66,7 @@
                                         <a href="javascript:void(0)" ';if($page_type == "sup"){echo ' class="active-item"';} echo'>Támogatóink</a>
                                     </li> -->
                                     <li>
-                                        <a href="javascript:void(0)" ';if($page_type == "contact"){echo ' class="active-item"';} echo'>Contact</a>
+                                        <a href="contact.php" ';if($page_type == "contact"){echo ' class="active-item"';} echo'>Contact</a>
                                     </li>';
 										}
 									?>
