@@ -31,10 +31,10 @@
 										if($_SESSION['lang']=='hun'){
 											echo '
                                     <li>
-                                        <a href=index.php'; if($page_type == "index"){echo 'class="active-item"';} echo' >Kezdőlap</a>
+                                        <a href=index.php'; if($page_type == "index"){echo ' class="active-item"';} echo' >Kezdőlap</a>
                                     </li>
                                     <li>
-                                        <a href="javascript:void(0)" ';if($page_type == "blog"){echo ' class="active-item"';} echo'>Blog</a>
+                                        <a href=blog.php';if($page_type == "blog"){echo ' class="active-item"';} echo'>Blog</a>
                                     </li>
                                     <li>
                                         <a href="javascript:void(0)" ';if($page_type == "galery"){echo ' class="active-item"';} echo'>Képgaléria</a>
@@ -54,7 +54,7 @@
                                         <a href=index.php'; if($page_type == "index"){echo ' class="active-item"';} echo' >Home</a>
                                     </li>
                                     <li>
-                                        <a href="javascript:void(0)" ';if($page_type == "blog"){echo ' class="active-item"';} echo'>Blog</a>
+                                        <a href=blog.php ';if($page_type == "blog"){echo ' class="active-item"';} echo'>Blog</a>
                                     </li>
                                     <li>
                                         <a href="javascript:void(0)" ';if($page_type == "galery"){echo ' class="active-item"';} echo'>Galery</a>
@@ -71,8 +71,8 @@
 										}
 									?>
 									<li>
-										<a href="index.php?lang=en" style="margin-left: 30px;margin-right: 0px;"><img src="assets/img/british-flag-icon.png" alt="British flag" height="25" width="25"></a>
-										<a href="index.php?lang=hun"  style="margin-left: 0px;"><img src="assets/img/Hungary-flag-icon.png" alt="Magyar zászló" height="25" width="25"></a>
+										<a href="?lang=en" style="margin-left: 30px;margin-right: 0px;"><img src="assets/img/british-flag-icon.png" alt="British flag" height="25" width="25"></a>
+										<a href="?lang=hun"  style="margin-left: 0px;"><img src="assets/img/Hungary-flag-icon.png" alt="Magyar zászló" height="25" width="25"></a>
 									</li>
                                 </ul>
                             </div>
