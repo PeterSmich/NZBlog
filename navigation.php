@@ -15,11 +15,13 @@
                     <nav class="navbar navbar-default white">
                         <!--  Header Logo  -->
                         <div id="logo">
-                            <a class="navbar-brand" href="index.html">
+                            <a class="navbar-brand" href="index.php">
+							<!--
                                 <img src="assets/img/logo.png" class="normal" alt="logo">
                                 <img src="assets/img/logo%402x.png" class="retina" alt="logo">
                                 <img src="assets/img/logo_white.png" class="normal white-logo" alt="logo">
                                 <img src="assets/img/logo_white%402x.png" class="retina white-logo" alt="logo">
+							-->
                             </a>
                         </div>
                         <!--  END Header Logo  -->
