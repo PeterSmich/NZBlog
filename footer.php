@@ -40,7 +40,7 @@
                     <div class="copy">
                         <div class="row no-margin">
                             <div class="col-md-8 padding-leftright-null">
-                                Exploreing New Zealand with Working Holliday vise. Follow us on:
+                                Exploreing New Zealand with Working Holliday Visa. Follow us on:
                             </div>
                             <div class="col-md-4 padding-leftright-null">
                                 <ul class="social">

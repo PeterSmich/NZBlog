@@ -184,7 +184,7 @@ include("navigation.php");
                                 <div class="col-md-4 padding-leftright-null">
                                     <div class="text">
                                         <i class="pd-icon-distance service margin-bottom-null"></i>
-                                        <h6 class="heading  margin-bottom-extrasmall"><?php if($_SESSION['lang']=='hun'){echo 'Vezettünk';}else{echo 'Drave';}?></h6>
+                                        <h6 class="heading  margin-bottom-extrasmall"><?php if($_SESSION['lang']=='hun'){echo 'Vezettünk';}else{echo 'Drove';}?></h6>
                                         <p class="margin-bottom-null"><?php if($_SESSION['lang']=='hun'){echo $km.' Kilómetert';}else{echo $km.' Kilometer';}?></p>
                                     </div>
                                 </div>
@@ -254,7 +254,7 @@ include("navigation.php");
                                 <div class="col-sm-6 single-news horizontal-news">
                                     <article>
                                         <div class="col-md-6 padding-leftright-null">
-                                            <div class="image" style="background-image:url(assets/img/'.$doc['img'].')"></div>
+                                            <div class="image" style="background-image:url(assets/img/blog/'.$doc['img'].')"></div>
                                         </div>
                                         <div class="col-md-6 padding-leftright-null">
                                             <div class="content">
@@ -311,7 +311,7 @@ include("navigation.php");
 						<div class="col-md-12 padding-leftright-null text padding-bottom-null text-center">
 							<h2 class="margin-bottom-null title line center"><?php if($_SESSION['lang'] == 'hun'){echo'Terveink';}else{echo'Our Plans';}?></h2>
 							<p class="heading center grey margin-bottom-null"></p>
-							<iframe style="margin: 1.5em;" src="https://www.google.com/maps/d/u/0/embed?mid=1SDsH-Z3tqBYVnFWNxcessWuo8K0mX5uF" width=75% height=480></iframe>
+							<iframe style="margin: 1.5em;" src="https://www.google.com/maps/d/u/0/embed?mid=1SDsH-Z3tqBYVnFWNxcessWuo8K0mX5uF" width=75% height=540></iframe>
 						</div>
 					</div>
 					<!-- END Section Map -->
@@ -343,7 +343,7 @@ include("navigation.php");
                            <div class="row">
                                <div class="col-md-12 padding-leftright-null padding-onlybottom-md text-center">
                                    <h2 class="margin-bottom-null title line center"><?php if($_SESSION['lang'] == 'hun'){echo'Egy kicsit magunkról';}else{echo'A bit about us';}?></h2>
-                                   <p class="heading center grey margin-bottom-null"><?php if($_SESSION['lang'] == 'hun'){echo'A 4 kalandozó';}else{echo'The 4 explorer';}?></p>
+                                   <p class="heading center grey margin-bottom-null"><?php if($_SESSION['lang'] == 'hun'){echo'A 4 kalandozó';}else{echo'The 4 explorers';}?></p>
                                </div>
                                <div class="col-md-3 single-person">
                                    <div class="content">
@@ -355,7 +355,7 @@ include("navigation.php");
                                        </ul>
                                    </div>
                                    <div class="description text-center">
-                                       <h5><?php if($_SESSION['lang'] == 'hun'){echo'Czucz Bálit Péter';}else{echo'Bálint Czucz';}?></h5>
+                                       <h5><?php if($_SESSION['lang'] == 'hun'){echo'Czucz Bálit';}else{echo'Bálint Czucz';}?></h5>
                                    </div>
                                </div>
                                <div class="col-md-3 single-person">
