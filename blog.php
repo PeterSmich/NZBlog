@@ -59,17 +59,34 @@ include("navigation.php");
                     </ul>
                 </div>
                 <!--  END Slider  -->
-				
+				<?php
+					try{
+						if($rdb_connect){
+							$result = r\db('nz_database')->table('blogs')->filter(array('language' => $_SESSION['lang']))->run($conn);
+							$num = r\db('nz_database')->table('blogs')->filter(array('language' => $_SESSION['lang']))->count()->run($conn);
+						}else{
+							$num = 0;
+						}
+					}catch (Exception $e){}
+				?>
 				<section id="masonry-filters">
 					<!--  Filters  -->
-					<div class="fixed transparent fullpage-wrap" id="filterStrip" style="height: 40px;" >
+					<div class="fixed transparent fullpage-wrap" id="filterStrip" style="height: 40px; z-index: 2;" >
 						<div class="text-center">
 							<ul class="filters ">
 								<li data-filter="*" class="is-checked">All</li>
-								<li data-filter=".nature">Nature</li>
-								<li data-filter=".adventure">Adventure</li>
-								<li data-filter=".lake">Lake</li>
-								<li data-filter=".mountain">Mountain</li>
+								<?php
+									// if($rdb_connect and $num >0){
+										// $months = array();
+										// foreach ($result as $doc){
+											// if in_array($doc->format('F'), $months){ 
+												// echo'
+								// <li data-filter=".'$doc->format('F').'">$doc->format('F')</li>';
+											// array_push($months,$doc->format('F'));
+											// }
+										// }
+									// }
+								?>
 								<li>
 								<form class="search-form" >
 									<div class="form-input">
@@ -99,8 +116,6 @@ include("navigation.php");
 								<?php 
 									if($rdb_connect){
 										try{
-											$result = r\db('nz_database')->table('blogs')->filter(array('language' => $_SESSION['lang']))->run($conn);
-											$num = r\db('nz_database')->table('blogs')->filter(array('language' => $_SESSION['lang']))->count()->run($conn);
 											if($num>0){
 												foreach ($result as $doc){
 													echo'
@@ -154,6 +169,51 @@ include("navigation.php");
 									</div>';
 									}
 								?>
+									<div class="single-news one-item horizontal-news">
+                                        <article>
+                                            <div class="col-md-4 padding-leftright-null">
+                                                <div class="image" style="background-image:url(assets/img/blog/trip6-small)"></div>
+                                            </div>
+                                            <div class="col-md-8 padding-leftright-null">
+                                                <div class="content">
+                                                    <h3>Valami</h3>
+                                                    <span class="date">2018-01-02 12:05</span>
+                                                    <p>Valami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szöveg</p>
+                                                </div>
+                                            </div>
+                                            <a href="blog.php?blog=titleee" class="link"></a>
+                                        </article>
+                                    </div> 
+									<div class="single-news one-item horizontal-news">
+                                        <article>
+                                            <div class="col-md-4 padding-leftright-null">
+                                                <div class="image" style="background-image:url(assets/img/blog/trip6-small)"></div>
+                                            </div>
+                                            <div class="col-md-8 padding-leftright-null">
+                                                <div class="content">
+                                                    <h3>Valami</h3>
+                                                    <span class="date">2018-01-02 12:05</span>
+                                                    <p>Valami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szöveg</p>
+                                                </div>
+                                            </div>
+                                            <a href="blog.php?blog=titleee" class="link"></a>
+                                        </article>
+                                    </div> 
+									<div class="single-news one-item horizontal-news">
+                                        <article>
+                                            <div class="col-md-4 padding-leftright-null">
+                                                <div class="image" style="background-image:url(assets/img/blog/trip6-small)"></div>
+                                            </div>
+                                            <div class="col-md-8 padding-leftright-null">
+                                                <div class="content">
+                                                    <h3>Valami</h3>
+                                                    <span class="date">2018-01-02 12:05</span>
+                                                    <p>Valami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szöveg</p>
+                                                </div>
+                                            </div>
+                                            <a href="blog.php?blog=titleee" class="link"></a>
+                                        </article>
+                                    </div> 
                                 </div>
                             </section>
                             <!--  END News Section  -->
@@ -273,17 +333,49 @@ include("navigation.php");
         <script src="assets/js/main.js"></script>
 		<script>
 			// When the user scrolls down 20px from the top of the document, show the button
+			function getStyle(el, styleProp) {
+			  var value, defaultView = (el.ownerDocument || document).defaultView;
+			  // W3C standard way:
+			  if (defaultView && defaultView.getComputedStyle) {
+				// sanitize property name to css notation
+				// (hypen separated words eg. font-Size)
+				styleProp = styleProp.replace(/([A-Z])/g, "-$1").toLowerCase();
+				return defaultView.getComputedStyle(el, null).getPropertyValue(styleProp);
+			  } else if (el.currentStyle) { // IE
+				// sanitize property name to camelCase
+				styleProp = styleProp.replace(/\-(\w)/g, function(str, letter) {
+				  return letter.toUpperCase();
+				});
+				value = el.currentStyle[styleProp];
+				// convert other units to pixels on IE
+				if (/^\d+(em|pt|%|ex)?$/i.test(value)) { 
+				  return (function(value) {
+					var oldLeft = el.style.left, oldRsLeft = el.runtimeStyle.left;
+					el.runtimeStyle.left = el.currentStyle.left;
+					el.style.left = value || 0;
+					value = el.style.pixelLeft + "px";
+					el.style.left = oldLeft;
+					el.runtimeStyle.left = oldRsLeft;
+					return value;
+				  })(value);
+				}
+				return value;
+			  }
+			}
 			window.onscroll = function() {scrollFunction()};
 
 			function scrollFunction() {
-				if (document.body.scrollTop > 570 || document.documentElement.scrollTop > 570) {
+				var height = parseInt((getStyle(document.getElementById("flexslider"), "height").match(/\d+/)[0]))-80;
+				if (document.body.scrollTop > height || document.documentElement.scrollTop > height) {
 					document.getElementById("filterStrip").style.position = "fixed";
 					document.getElementById("filterStrip").style.top = "80px";
 					document.getElementById("filterStrip").style.width = "100%";
-					document.getElementById("filterStrip").style.marginLeft = "-50px";
+					document.getElementById("filterStrip").style.height = "40px";
+					document.getElementById("filterStrip").style.zIndex = "2";
 					document.getElementById("home-wrap").style.paddingTop = "40px";
 				} else {
-					document.getElementById("filterStrip").style.position = "static";
+					document.getElementById("filterStrip").style = document.getElementById("filterStrip").style;
+					document.getElementById("filterStrip").style.height = "40px";
 					document.getElementById("filterStrip").style.zIndex = "2";
 					document.getElementById("home-wrap").style.paddingTop = "0px";
 				}
