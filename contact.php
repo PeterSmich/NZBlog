@@ -52,7 +52,7 @@ include("navigation.php");
 						<div class="col-md-12 padding-leftright-null ">
 							<div class="text text-center">
 								<ul class="info">
-									<li>Mail <p >info.thereandback@gmail.com</p></li>
+									<li>Mail <p >info@thereandback.hu</p></li>
 									<li>YouTube Channel<p ><a href="https://www.youtube.com/channel/UCm_j1KDKKAywYH-PJ1XE4HA/">https://goo.gl/Ehcz22</a></p></li>
 								</ul>
 							</div>
@@ -68,7 +68,7 @@ include("navigation.php");
 											<h4 style="padding: 15px;"><?php if($_SESSION['lang'] == 'hun'){echo'Czucz Bálit';}else{echo'Bálint Czucz';}?></h4>
 											<ul class="info">
 												<li>Mail <p >czuczb@hotmail.com</p></li>
-												<li>Instagram<p><a href="instagram.com/balintczucz">instagram.com/<br>balintczucz</a></p></li>
+												<li>Instagram<p><a href="htpps://instagram.com/balintczucz">instagram.com/<br>balintczucz</a></p></li>
 											</ul>
 										</div>
 									</div>
@@ -80,7 +80,7 @@ include("navigation.php");
 											<h4 style="padding: 15px;"><?php if($_SESSION['lang'] == 'hun'){echo'Kovách András';}else{echo'András Kovách';}?></h4>
 											<ul class="info">
 												<li>Mail <p >kovach.andras@gmail.com</p></li>
-												<li>Instagram<p><a href="instagram.com/andras.kovach">instagram.com/<br>andras.kovach</a></p></li>
+												<li>Instagram<p><a href="htpps://instagram.com/andras.kovach">instagram.com/<br>andras.kovach</a></p></li>
 											</ul>
 										</div>
 									</div>
