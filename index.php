@@ -170,8 +170,8 @@ include("navigation.php");
                                 <div class="col-md-4 padding-leftright-null">
                                     <div class="text padding-md-bottom-null">
                                         <i class="pd-icon-juice service margin-bottom-null"></i>
-                                        <h6 class="heading margin-bottom-extrasmall"><?php if($_SESSION['lang']=='hun'){echo 'Elfogyasztott alkohol';}else{echo 'Comsumed alcohol';}?></h6>
-                                        <p class="margin-bottom-null"><?php if($_SESSION['lang']=='hun'){echo $alc.' Egység';}else{echo $alc.' Unit';}?></p>
+                                        <h6 class="heading margin-bottom-extrasmall"><?php if($_SESSION['lang']=='hun'){echo 'Pihenés';}else{echo 'Resting';}?></h6>
+                                        <p class="margin-bottom-null"><?php if($_SESSION['lang']=='hun'){echo $alc.' Óra';}else{echo $alc.' Hours';}?></p>
                                     </div>
                                 </div>
                                 <div class="col-md-4 padding-leftright-null">
@@ -184,7 +184,7 @@ include("navigation.php");
                                 <div class="col-md-4 padding-leftright-null">
                                     <div class="text">
                                         <i class="pd-icon-distance service margin-bottom-null"></i>
-                                        <h6 class="heading  margin-bottom-extrasmall"><?php if($_SESSION['lang']=='hun'){echo 'Vezettünk';}else{echo 'Drave';}?></h6>
+                                        <h6 class="heading  margin-bottom-extrasmall"><?php if($_SESSION['lang']=='hun'){echo 'Vezettünk';}else{echo 'Drove';}?></h6>
                                         <p class="margin-bottom-null"><?php if($_SESSION['lang']=='hun'){echo $km.' Kilómetert';}else{echo $km.' Kilometer';}?></p>
                                     </div>
                                 </div>
@@ -254,7 +254,7 @@ include("navigation.php");
                                 <div class="col-sm-6 single-news horizontal-news">
                                     <article>
                                         <div class="col-md-6 padding-leftright-null">
-                                            <div class="image" style="background-image:url(assets/img/'.$doc['img'].')"></div>
+                                            <div class="image" style="background-image:url(assets/img/blog/'.$doc['img'].')"></div>
                                         </div>
                                         <div class="col-md-6 padding-leftright-null">
                                             <div class="content">
@@ -311,7 +311,7 @@ include("navigation.php");
 						<div class="col-md-12 padding-leftright-null text padding-bottom-null text-center">
 							<h2 class="margin-bottom-null title line center"><?php if($_SESSION['lang'] == 'hun'){echo'Terveink';}else{echo'Our Plans';}?></h2>
 							<p class="heading center grey margin-bottom-null"></p>
-							<iframe style="margin: 1.5em;" src="https://www.google.com/maps/d/u/0/embed?mid=1SDsH-Z3tqBYVnFWNxcessWuo8K0mX5uF" width=75% height=480></iframe>
+							<iframe style="margin: 1.5em;" src="https://www.google.com/maps/d/u/0/embed?mid=1SDsH-Z3tqBYVnFWNxcessWuo8K0mX5uF" width=75% height=540></iframe>
 						</div>
 					</div>
 					<!-- END Section Map -->
@@ -343,28 +343,26 @@ include("navigation.php");
                            <div class="row">
                                <div class="col-md-12 padding-leftright-null padding-onlybottom-md text-center">
                                    <h2 class="margin-bottom-null title line center"><?php if($_SESSION['lang'] == 'hun'){echo'Egy kicsit magunkról';}else{echo'A bit about us';}?></h2>
-                                   <p class="heading center grey margin-bottom-null"><?php if($_SESSION['lang'] == 'hun'){echo'A 4 kalandozó';}else{echo'The 4 explorer';}?></p>
+                                   <p class="heading center grey margin-bottom-null"><?php if($_SESSION['lang'] == 'hun'){echo'A 4 kalandozó';}else{echo'The 4 explorers';}?></p>
                                </div>
                                <div class="col-md-3 single-person">
                                    <div class="content">
                                        <img src="assets/img/balintczucz.jpg" alt="BC">
                                        <ul class="social">
-                                           <li><a href="#"><i class="icon ion-social-instagram"></i></a></li>
-                                           <li><a href="#"><i class="icon ion-social-snapchat"></i></a></li>
-                                           <li><a href="#"><i class="fa fa-youtube-play"></i></a></li>
+                                           <li><a href="instagram.com/balintczucz"><i class="icon ion-social-instagram"></i></a></li>
+                                           <li><a href="https://www.youtube.com/channel/UCm_j1KDKKAywYH-PJ1XE4HA/"><i class="fa fa-youtube-play"></i></a></li>
                                        </ul>
                                    </div>
                                    <div class="description text-center">
-                                       <h5><?php if($_SESSION['lang'] == 'hun'){echo'Czucz Bálit Péter';}else{echo'Bálint Czucz';}?></h5>
+                                       <h5><?php if($_SESSION['lang'] == 'hun'){echo'Czucz Bálit';}else{echo'Bálint Czucz';}?></h5>
                                    </div>
                                </div>
                                <div class="col-md-3 single-person">
                                    <div class="content">
                                        <img src="assets/img/andraskovach.jpg" alt="AK">
                                        <ul class="social">
-                                           <li><a href="#"><i class="icon ion-social-instagram"></i></a></li>
-                                           <li><a href="#"><i class="icon ion-social-snapchat"></i></a></li>
-                                           <li><a href="#"><i class="fa fa-youtube-play"></i></a></li>
+                                           <li><a href="instagram.com/andras.kovach"><i class="icon ion-social-instagram"></i></a></li>
+                                           <li><a href="https://www.youtube.com/channel/UCm_j1KDKKAywYH-PJ1XE4HA/"><i class="fa fa-youtube-play"></i></a></li>
                                        </ul>
                                    </div>
                                    <div class="description text-center">
@@ -375,9 +373,7 @@ include("navigation.php");
                                    <div class="content">
                                        <img src="assets/img/tamaskovach.jpg" alt="TK">
                                        <ul class="social">
-                                           <li><a href="#"><i class="icon ion-social-instagram"></i></a></li>
-                                           <li><a href="#"><i class="icon ion-social-snapchat"></i></a></li>
-                                           <li><a href="#"><i class="fa fa-youtube-play"></i></a></li>
+                                           <li><a href="https://www.youtube.com/channel/UCm_j1KDKKAywYH-PJ1XE4HA/"><i class="fa fa-youtube-play"></i></a></li>
                                        </ul>
                                    </div>
                                    <div class="description text-center">
@@ -388,7 +384,7 @@ include("navigation.php");
                                    <div class="content">
 										<img src="assets/img/peterkovach.jpg" alt="PK">
                                        <ul class="social">
-                                           <li><a href="#"><i class="fa fa-youtube-play"></i></a></li>
+                                           <li><a href="https://www.youtube.com/channel/UCm_j1KDKKAywYH-PJ1XE4HA/"><i class="fa fa-youtube-play"></i></a></li>
                                        </ul>
                                    </div>
                                    <div class="description text-center">
