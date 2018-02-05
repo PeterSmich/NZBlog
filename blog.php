@@ -71,38 +71,46 @@ include("navigation.php");
 				?>
 				<section id="masonry-filters">
 					<!--  Filters  -->
-					<div class="fixed transparent fullpage-wrap" id="filterStrip" style="height: 40px; z-index: 2;" >
-						<div class="text-center">
-							<ul class="filters ">
-								<li data-filter="*" class="is-checked">All</li>
-								<?php
-									// if($rdb_connect and $num >0){
-										// $months = array();
-										// foreach ($result as $doc){
-											// if in_array($doc->format('F'), $months){ 
-												// echo'
-								// <li data-filter=".'$doc->format('F').'">$doc->format('F')</li>';
-											// array_push($months,$doc->format('F'));
-											// }
-										// }
-									// }
-								?>
-								<li>
-								<form class="search-form" >
-									<div class="form-input">
-										<input type="text" placeholder="Search..." style="width: 100px; height:35px; border: none;">
-										<span class="form-button">
-											<button type="button">
-												<i class="icon ion-ios-search-strong"></i>
-											</button>
-										</span>
+					<div class="fixed transparent fullpage-wrap" id="filterStrip" style="z-index: 2;" >
+						<div class="row margin-leftright-null" style="box-shadow: 0px 2px 5px grey;">
+							<div class="container" >
+								<div class="col-md-10 padding-leftright-null text padding-bottom-null text-center" id="filters">
+									<ul class="filters ">
+										<li data-filter="*" class="is-checked" style="height: 0.5px; padding: 0px 12px; line-height: 30px; margin-bottom: 12px; margin-top: 3px;" onclick="filterMonths('all')"><?php if($_SESSION['lang']=='hun'){echo'Összes';}else{echo'All';} ?></li>
+										<?php
+											if($rdb_connect and $num >0){
+												$honapok = array("January"=>"Január","February"=>"Február","March"=>"Március","April"=>"Április","May"=>"Május","June"=>"Június","July"=>"Július","August"=>"Augusztus","September"=>"Szeptember","October"=>"Október","November"=>"November","December"=>"December");
+												$months = array();
+												foreach ($result as $doc){
+													$month = $doc['timestamp']->format('F');
+													if (!in_array($month, $months)){ 
+														echo'<li data-filter="'.$month.'" style="height: 0.5px; padding: 0px 12px; line-height: 30px; margin-bottom: 12px; margin-top: 3px;" onclick="filterMonths('."'".$month."'".')">';if($_SESSION['lang']=='hun'){echo $honapok[$month];}else{echo $month;} echo'</li>';
+													array_push($months,$month);
+													}
+												}
+												$json = json_encode($months);
+											}
+										?>										
+									</ul>
+								</div>
+								<div class="col-md-2 padding-leftright-null text padding-bottom-null" style="text-align: center;">
+									<div class="widget-wrapper" style="text-align: right; width:130px; display: inline-block; padding-top: 2px">
+										<form class="search-form" style=" width:130px; background: #CBBD9A; border-radius: 5px; text-align: center;">
+											<div class="form-input">
+												<input type="text" placeholder=<?php if($_SESSION['lang']=='hun'){echo'Keresés... ';}else{echo'Search... ';}?>style="width: 100px; height:25px; border-radius: 5px;">
+												<span class="form-button">
+													<button type="button">
+														<i class="icon ion-ios-search-strong" ></i>
+													</button>
+												</span>
+											</div>
+										</form>
 									</div>
-								</form>
-								</li>
-								<li style="line-height: 40px; ">
-									<button onclick="topFunction()" id="topBttn" ><?php if($_SESSION['lang'] == 'hun'){echo'Tetejére';}else{echo'Top';}?></button>
-								</li>
-							</ul>
+									<div style="line-height: 30px; display: inline-block;padding-top: 2px; padding-bottom: 2px;">
+										<button  style="border-radius: 5px; background:#CBBD9A; height: 30px; width: 130px; padding-top: 0px;" onclick="topFunction()" id="topBttn" ><?php if($_SESSION['lang'] == 'hun'){echo'Tetejére';}else{echo'Top';}?></button>
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
 					<!--  END Filters  -->
@@ -112,14 +120,16 @@ include("navigation.php");
                         <div class="col-md-11 padding-leftright-null">
                             <!--  News Section  -->
                             <section id="news" class="page">
-                                <div class="news-items equal one-columns">
+                                <div class="news-items equal one-columns" id="blogWrapper">
 								<?php 
 									if($rdb_connect){
-										try{
+										try{											
+											$result = r\db('nz_database')->table('blogs')->filter(array('language' => $_SESSION['lang']))->run($conn);
+											$num = r\db('nz_database')->table('blogs')->filter(array('language' => $_SESSION['lang']))->count()->run($conn);
 											if($num>0){
 												foreach ($result as $doc){
 													echo'
-                                    <div class="single-news one-item horizontal-news">
+                                    <div class="single-news one-item horizontal-news '.$doc['timestamp']->format('F').'" style="display: static !important;">
                                         <article>
                                             <div class="col-md-4 padding-leftright-null">
                                                 <div class="image" style="background-image:url(assets/img/blog/'.$doc['img'].')"></div>
@@ -169,168 +179,18 @@ include("navigation.php");
 									</div>';
 									}
 								?>
-									<div class="single-news one-item horizontal-news">
-                                        <article>
-                                            <div class="col-md-4 padding-leftright-null">
-                                                <div class="image" style="background-image:url(assets/img/blog/trip6-small)"></div>
-                                            </div>
-                                            <div class="col-md-8 padding-leftright-null">
-                                                <div class="content">
-                                                    <h3>Valami</h3>
-                                                    <span class="date">2018-01-02 12:05</span>
-                                                    <p>Valami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szöveg</p>
-                                                </div>
-                                            </div>
-                                            <a href="blog.php?blog=titleee" class="link"></a>
-                                        </article>
-                                    </div> 
-									<div class="single-news one-item horizontal-news">
-                                        <article>
-                                            <div class="col-md-4 padding-leftright-null">
-                                                <div class="image" style="background-image:url(assets/img/blog/trip6-small)"></div>
-                                            </div>
-                                            <div class="col-md-8 padding-leftright-null">
-                                                <div class="content">
-                                                    <h3>Valami</h3>
-                                                    <span class="date">2018-01-02 12:05</span>
-                                                    <p>Valami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szöveg</p>
-                                                </div>
-                                            </div>
-                                            <a href="blog.php?blog=titleee" class="link"></a>
-                                        </article>
-                                    </div> 
-									<div class="single-news one-item horizontal-news">
-                                        <article>
-                                            <div class="col-md-4 padding-leftright-null">
-                                                <div class="image" style="background-image:url(assets/img/blog/trip6-small)"></div>
-                                            </div>
-                                            <div class="col-md-8 padding-leftright-null">
-                                                <div class="content">
-                                                    <h3>Valami</h3>
-                                                    <span class="date">2018-01-02 12:05</span>
-                                                    <p>Valami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szövegValami teljesen random szöveg</p>
-                                                </div>
-                                            </div>
-                                            <a href="blog.php?blog=titleee" class="link"></a>
-                                        </article>
-                                    </div> 
                                 </div>
                             </section>
                             <!--  END News Section  -->
-                        </div>
-                        <div class="row margin-leftright-null">
-                            <!--  Navigation  -->
-                            <section id="nav" class="padding-top-null grey-background">
-                                <div class="row">
-                                    <div class="col-xs-6">
-                                        <div class="nav-left">
-                                            <a href="single-blog-style-2.html" class="btn-alt small margin-null"><i class="icon ion-ios-arrow-up"></i><span>Older posts</span></a>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-6">
-                                        <div class="nav-right">
-                                            <a href="#" class="btn-alt small margin-null"><span>Newer posts</span><i class="icon ion-ios-arrow-right"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </section>
-                            <!--  END Navigation  -->
                         </div>
                     </div>
                 </div>
             </div>
             <!--  END Page Content, class footer-fixed if footer is fixed  -->
-            
-            <!--  Footer. Class fixed for fixed footer  -->
-            <footer class="fixed full-width">
-                <div class="container">
-                    <div class="row no-margin">
-                        <div class="col-sm-4 col-md-2 padding-leftright-null">
-                            <h6 class="heading white margin-bottom-extrasmall">Dolomia</h6>
-                            <ul class="sitemap">
-                                <li><a href="#">Home</a></li>
-                                <li><a href="#">Pages</a></li>
-                                <li><a href="#">Portfolio</a></li>
-                                <li><a href="#">Blog</a></li>
-                                <li><a href="#">Elements</a></li>
-                                <li><a href="#">Contacts</a></li>
-                            </ul>
-                        </div>
-                        <div class="col-sm-4 col-md-2 padding-leftright-null">
-                            <h6 class="heading white margin-bottom-extrasmall">Useful Links</h6>
-                            <ul class="useful-links">
-                                <li><a href="#">FAQs</a></li>
-                                <li><a href="#">Download Catalog</a></li>
-                                <li><a href="#">Privacy Policy</a></li>
-                                <li><a href="#">Cookie Policy</a></li>
-                            </ul>
-                        </div>
-                        <div class="col-sm-4 col-md-4 padding-leftright-null">
-                            <h6 class="heading white margin-bottom-extrasmall">Contact Us</h6>
-                            <ul class="info">
-                                <li>Phone <a href="#">+39 123456789</a></li>
-                                <li>Mail <a href="#">mail@domain.com</a></li>
-                                <li>Monday to Friday <span class="white">9.00 am to 8.00 pm</span><br>Saturday from <span class="white">9.00 am to 12.00 pm</span></li>
-                                <li><a href="#">322 Moon St, Venice<br>
-                                    Italy, 1231</a></li>
-                            </ul>
-                        </div>
-                        <div class="col-md-4 padding-leftright-null">
-                            <h6 class="heading white margin-bottom-extrasmall">Passionate About Nature</h6>
-                            <p class="grey-light">Sign up for Dolomia mounthly newsletter and get to know more about our latest adventures and much mores...</p>
-                            <div id="newsletter-form" class="padding-onlytop-xs">
-                                <form class="search-form">
-                                    <div class="form-input">
-                                        <input type="text" placeholder="Your email ID">
-                                        <span class="form-button">
-                                            <button type="button">Sign Up</button>
-                                        </span>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="copy">
-                        <div class="row no-margin">
-                            <div class="col-md-8 padding-leftright-null">
-                                &copy; 2016 Dolomia -  Hiking &amp; Outdoor Html Template Handmade by <a href="http://www.patrickdavid.it/">puredesignThemes</a>
-                            </div>
-                            <div class="col-md-4 padding-leftright-null">
-                                <ul class="social">
-                                    <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </footer>
-            <!--  END Footer. Class fixed for fixed footer  -->
-        </div>
-        <!--  Main Wrap  -->
-        
-        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-        <script src="assets/js/jquery.min.js"></script>
-        <!-- All js library -->
-        <script src="assets/js/bootstrap/bootstrap.min.js"></script>
-        <script src="assets/js/jquery.flexslider-min.js"></script>
-        <script src="assets/js/jquery.fullPage.min.js"></script>
-        <script src="assets/js/owl.carousel.min.js"></script>
-        <script src="assets/js/isotope.min.js"></script>
-        <script src="assets/js/jquery.magnific-popup.min.js"></script>
-        <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;signed_in=false"></script>
-        <script src="assets/js/jquery.scrollTo.min.js"></script>
-        <script src="assets/js/smooth.scroll.min.js"></script>
-        <script src="assets/js/jquery.appear.js"></script>
-        <script src="assets/js/jquery.countTo.js"></script>
-        <script src="assets/js/jquery.scrolly.js"></script>
-        <script src="assets/js/plugins-scroll.js"></script>
-        <script src="assets/js/imagesloaded.min.js"></script>
-        <script src="assets/js/pace.min.js"></script>
-        <script src="assets/js/main.js"></script>
+<?php
+	require_once('footer.php')
+?>
+
 		<script>
 			// When the user scrolls down 20px from the top of the document, show the button
 			function getStyle(el, styleProp) {
@@ -364,28 +224,61 @@ include("navigation.php");
 			}
 			window.onscroll = function() {scrollFunction()};
 
-			function scrollFunction() {
-				var height = parseInt((getStyle(document.getElementById("flexslider"), "height").match(/\d+/)[0]))-80;
+			function scrollFunction() {				
+				if(screen.width < 902){
+					document.getElementById("filters").style.display = "none";
+				}
+				var pd = getStyle(document.getElementById("filterStrip"), "height");
+				var tp = getStyle(document.getElementById("header"), "height");
+				var height = parseInt((getStyle(document.getElementById("flexslider"), "height").match(/\d+/)[0]))-parseInt(tp.match(/\d+/)[0]);
 				if (document.body.scrollTop > height || document.documentElement.scrollTop > height) {
 					document.getElementById("filterStrip").style.position = "fixed";
-					document.getElementById("filterStrip").style.top = "80px";
+					document.getElementById("filterStrip").style.top = tp;
 					document.getElementById("filterStrip").style.width = "100%";
-					document.getElementById("filterStrip").style.height = "40px";
 					document.getElementById("filterStrip").style.zIndex = "2";
-					document.getElementById("home-wrap").style.paddingTop = "40px";
+					document.getElementById("home-wrap").style.paddingTop = pd;
 				} else {
 					document.getElementById("filterStrip").style = document.getElementById("filterStrip").style;
-					document.getElementById("filterStrip").style.height = "40px";
 					document.getElementById("filterStrip").style.zIndex = "2";
 					document.getElementById("home-wrap").style.paddingTop = "0px";
 				}
 			}
 			function topFunction() {
-				document.body.scrollTop = 0; // For Safari
-				document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+				// document.body.scrollTop = 0; // For Safari
+				// document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+				 $("html, body").animate({
+					scrollTop: $("#home-wrap").offset().top -parseInt((getStyle(document.getElementById("header"), "height").match(/\d+/)[0]))
+				});
 			} 
+			
+			function filterMonths(month){
+				console.log(month);
+				var months = <?php echo $json; ?>;
+				if (month == 'all'){
+					for(m in months){
+						var e = document.getElementsByClassName(months[m]);
+						for(i=0; i<e.length; i++) {
+							e[i].style.display = "block";
+							document.getElementById("blogWrapper").style.height = "auto";
+						}
+					}
+				}else{
+					for(m in months){
+						var e = document.getElementsByClassName(months[m]);
+						for(i=0; i<e.length; i++) {
+							e[i].style.display = "none";
+							e[i].style.position = "static";
+							document.getElementById("blogWrapper").style.height = "auto";
+						}
+					}
+					e = document.getElementsByClassName(month);
+					for(i=0; i<e.length; i++) {
+						e[i].style.display = "block";
+							e[i].style.position = "static";
+							document.getElementById("blogWrapper").style.height = "auto";
+					}
+				}
+			}
 		</script>
-    </body>
-
 <!-- Mirrored from wearepuredesign.com/dolomia/blog-classic.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 15 Jan 2018 19:49:10 GMT -->
 </html>
