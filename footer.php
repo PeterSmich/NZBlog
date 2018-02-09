@@ -11,7 +11,7 @@
                             <ul class="sitemap">
                                 <li><a href="index.php">Home</a></li>
                                 <li><a href="blog.php">Blog</a></li>
-                                <li><a href="#">Galeria</a></li>
+                                <li><a href="#">Gallery</a></li>
                                 <li><a href="contact.php">Contact</a></li>
                             </ul>
                         </div>

@@ -9,7 +9,7 @@
                                 <?php
 									if($_SESSION['lang'] == 'hun') {
 										echo '
-										<h1 class="white flex-animation" style="font-family:lotr;font-size:110px;">Egyszer volt,<br><br> hol nemvolt<br></h1>
+										<h1 class="white flex-animation" style="font-family:lotr;font-size:110px;">Egyszer volt,<br><br> hol nem volt<br></h1>
 										<h2 class="white flex-animation" style="font-family:lotr;font-size:35px;">Kalandozas Uj-Zelandon</h2>';
 									} else {
 										echo '
@@ -65,23 +65,30 @@
 											if($rdb_connect and $num >0){
 												$honapok = array("January"=>"Január","February"=>"Február","March"=>"Március","April"=>"Április","May"=>"MÁjus","June"=>"Június","July"=>"Július","August"=>"Augusztus","September"=>"Szeptember","October"=>"Október","November"=>"November","December"=>"December");
 												$months = array();
+												$years = array();
 												foreach ($result as $doc){
 													$month = $doc['timestamp']->format('F');
+													$year = $doc['timestamp']->format('Y');
+													if (!in_array($year, $years)){ 
+														echo'<li data-filter="'.$year.'" style="height: 0.5px; padding: 0px 12px; line-height: 30px; margin-bottom: 12px; margin-top: 3px;" onclick="filterMonths('."'".$year."'".', 1)">'.$year.':</li>';
+													array_push($years,$year);
+													}
 													if (!in_array($month, $months)){ 
-														echo'<li data-filter="'.$month.'" style="height: 0.5px; padding: 0px 12px; line-height: 30px; margin-bottom: 12px; margin-top: 3px;" onclick="filterMonths('."'".$month."'".')">';if($_SESSION['lang']=='hun'){echo $honapok[$month];}else{echo $month;} echo'</li>';
+														echo'<li data-filter="'.$month.'" style="height: 0.5px; padding: 0px 12px; line-height: 30px; margin-bottom: 12px; margin-top: 3px;" onclick="filterMonths('."'".$month."'".', 0)">';if($_SESSION['lang']=='hun'){echo $honapok[$month];}else{echo $month;} echo'</li>';
 													array_push($months,$month);
 													}
 												}
-												$json = json_encode($months);
+												$jsonm = json_encode($months);
+												$jsony = json_encode($years);
 											}
 										?>										
 									</ul>
 								</div>
 								<div class="col-md-3 padding-leftright-null text padding-bottom-null" style="text-align: center;">
 									<div class="widget-wrapper" style="text-align: right; width:130px; display: inline-block; padding-top: 2px">
-										<form class="search-form" style=" width:130px; background: #CBBD9A; border-radius: 5px; text-align: center;">
+										<form class="search-form" style=" width:130px; background: #CBBD9A; border-radius: 2px; text-align: center;">
 											<div class="form-input">
-												<input type="text" name="search" placeholder=<?php if($_SESSION['lang']=='hun'){echo'Keresés... ';}else{echo'Search... ';}?>style="width: 100px; height:25px; border-radius: 5px;" value="<?php if(isset($_GET['search'])){echo $_GET['search'];}?>">
+												<input type="text" name="search" placeholder=<?php if($_SESSION['lang']=='hun'){echo'Keresés... ';}else{echo'Search... ';}?>style="width: 100px; height:25px; border-radius: 2px;" value="<?php if(isset($_GET['search'])){echo $_GET['search'];}?>">
 												<span class="form-button">
 													<button type="submit">
 														<i class="icon ion-ios-search-strong" ></i>
@@ -91,7 +98,7 @@
 										</form>
 									</div>
 									<div style="line-height: 30px; display: inline-block;padding-top: 2px; padding-bottom: 2px;">
-										<button  style="border-radius: 5px; background:#CBBD9A; height: 30px; width: 130px; padding-top: 0px;" onclick="topFunction()" id="topBttn" ><?php if($_SESSION['lang'] == 'hun'){echo'Tetejére';}else{echo'Top';}?></button>
+										<button  style="border-radius: 2px; background:#CBBD9A; height: 30px; width: 130px; padding-top: 0px;" onclick="topFunction()" id="topBttn" ><?php if($_SESSION['lang'] == 'hun'){echo'Tetejére';}else{echo'Top';}?></button>
 									</div>
 								</div>
 							</div>
@@ -117,7 +124,7 @@
 									<div class="news-items equal one-columns" id="blogWrapper">';
 													foreach ($result as $doc){
 														echo'
-										<div class="single-news one-item horizontal-news '.$doc['timestamp']->format('F').'" style="display: static !important;">
+										<div class="single-news one-item horizontal-news '.$doc['timestamp']->format('F').' '.$doc['timestamp']->format('Y').'" style="display: static !important;">
 											<article>
 												<div class="col-md-4 padding-leftright-null">
 													<div class="image" style="background-image:url(assets/img/blog/'.$doc['img'].')"></div>
@@ -141,7 +148,7 @@
 											<div class="container">
 												<div class="col-md-12 padding-leftright-null text padding-bottom-null text-center">
 													<h2 class="margin-bottom-null title line center">';if($_SESSION['lang']=='hun'){echo'Legfirssebb bejegyzések';}else{echo'Recent articles';}echo'</h2>
-													<p class="heading center grey">';if($_SESSION['lang']=='hun'){echo'1Jelenleg még nincs blog bejegyzés';}else{echo'There is no article jet';}echo'</p>
+													<p class="heading center grey">';if($_SESSION['lang']=='hun'){echo'Jelenleg még nincs blog bejegyzés';}else{echo'There are no articles yet';}echo'</p>
 												</div>
 											</div>
 										</div>';
@@ -152,7 +159,7 @@
 											<div class="container">
 												<div class="col-md-12 padding-leftright-null text padding-bottom-null text-center">
 													<h2 class="margin-bottom-null title line center">';if($_SESSION['lang']=='hun'){echo'Legfirssebb bejegyzések';}else{echo'Recent articles';}echo'</h2>
-													<p class="heading center grey">';if($_SESSION['lang']=='hun'){echo'2Jelenleg még nincs blog bejegyzés';}else{echo'There is no article jet';}echo'</p>
+													<p class="heading center grey">';if($_SESSION['lang']=='hun'){echo'Jelenleg még nincs blog bejegyzés';}else{echo'There are no articles yet';}echo'</p>
 												</div>
 											</div>
 										</div>';
@@ -163,7 +170,7 @@
 											<div class="container">
 												<div class="col-md-12 padding-leftright-null text padding-bottom-null text-center">
 													<h2 class="margin-bottom-null title line center">';if($_SESSION['lang']=='hun'){echo'Legfirssebb bejegyzések';}else{echo'Recent articles';}echo'</h2>
-													<p class="heading center grey">';if($_SESSION['lang']=='hun'){echo'3Jelenleg még nincs blog bejegyzés';}else{echo'There is no article jet';}echo'</p>
+													<p class="heading center grey">';if($_SESSION['lang']=='hun'){echo'Jelenleg még nincs blog bejegyzés';}else{echo'There are no articles yet';}echo'</p>
 												</div>
 											</div>
 										</div>
@@ -238,31 +245,58 @@
 					});
 				} 
 				
-				function filterMonths(month){
-					console.log(month);
-					var months = <?php echo $json; ?>;
-					if (month == 'all'){
-						for(m in months){
-							var e = document.getElementsByClassName(months[m]);
+				function filterMonths(filter, sw){
+					if(sw == 0){
+						var months = <?php if($jsonm===''){echo'[]';}else{echo $jsonm; }?>;
+						if (filter == 'all'){
+							for(m in months){
+								var e = document.getElementsByClassName(months[m]);
+								for(i=0; i<e.length; i++) {
+									e[i].style.display = "block";
+									document.getElementById("blogWrapper").style.height = "auto";
+								}
+							}
+						}else{
+							for(m in months){
+								var e = document.getElementsByClassName(months[m]);
+								for(i=0; i<e.length; i++) {
+									e[i].style.display = "none";
+									e[i].style.position = "static";
+									document.getElementById("blogWrapper").style.height = "auto";
+								}
+							}
+							e = document.getElementsByClassName(filter);
 							for(i=0; i<e.length; i++) {
 								e[i].style.display = "block";
-								document.getElementById("blogWrapper").style.height = "auto";
+									e[i].style.position = "static";
+									document.getElementById("blogWrapper").style.height = "auto";
 							}
 						}
 					}else{
-						for(m in months){
-							var e = document.getElementsByClassName(months[m]);
-							for(i=0; i<e.length; i++) {
-								e[i].style.display = "none";
-								e[i].style.position = "static";
-								document.getElementById("blogWrapper").style.height = "auto";
+						var years = <?php if($jsony===''){echo'[]';}else{echo $jsony; }?>;
+						if (filter == 'all'){
+							for(y in years){
+								var e = document.getElementsByClassName(years[y]);
+								for(i=0; i<e.length; i++) {
+									e[i].style.display = "block";
+									document.getElementById("blogWrapper").style.height = "auto";
+								}
 							}
-						}
-						e = document.getElementsByClassName(month);
-						for(i=0; i<e.length; i++) {
-							e[i].style.display = "block";
-								e[i].style.position = "static";
-								document.getElementById("blogWrapper").style.height = "auto";
+						}else{
+							for(y in years){
+								var e = document.getElementsByClassName(years[y]);
+								for(i=0; i<e.length; i++) {
+									e[i].style.display = "none";
+									e[i].style.position = "static";
+									document.getElementById("blogWrapper").style.height = "auto";
+								}
+							}
+							e = document.getElementsByClassName(filter);
+							for(i=0; i<e.length; i++) {
+								e[i].style.display = "block";
+									e[i].style.position = "static";
+									document.getElementById("blogWrapper").style.height = "auto";
+							}
 						}
 					}
 				}
