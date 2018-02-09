@@ -211,7 +211,11 @@ html.lb-disable-scrolling {
 	width: 100%;	
 	background-color:lightgray;
 	border-radius: 3px;
-	box-shadow: 5px 5px 2px grey
+    transition: all 0.5s;
+	box-shadow: 3px 3px 5px grey
+}
+.equal_size_img_yolo_kecske_turosbukta:hover {
+ box-shadow: 7px 7px 9px grey
 }
 .equal_size_img_yolo_kecske_turosbukta:before{
 	content: "";
@@ -232,6 +236,7 @@ html.lb-disable-scrolling {
 }
 .equal_size_img_yolo_kecske_turosbukta_div img {
 	height: 100%;
+	min-width: 100%;
     opacity: 1;
     transition: all 0.5s;
     -webkit-transition: all 0.5s;
