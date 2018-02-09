@@ -99,82 +99,85 @@
 					</div>
 					<!--  END Filters  -->
 				</section>
-                <div id="home-wrap" class="content-section fullpage-wrap row grey-background" >
-                    <div class="container">
-                        <div class="col-md-11 padding-leftright-null">
-                            <!--  News Section  -->
-                            <section id="news" class="page">
-                                <div class="news-items equal one-columns" id="blogWrapper">
-								<?php 
-									if($rdb_connect){
-										if(!isset($_GET['search'])){
-											$result = r\db('nz_database')->table('blogs')->filter(array('language' => $_SESSION['lang']))->run($conn);
-											$num = r\db('nz_database')->table('blogs')->filter(array('language' => $_SESSION['lang']))->count()->run($conn);
-										}
-										try{											
-											if($num>0){
-												foreach ($result as $doc){
-													echo'
-                                    <div class="single-news one-item horizontal-news '.$doc['timestamp']->format('F').'" style="display: static !important;">
-                                        <article>
-                                            <div class="col-md-4 padding-leftright-null">
-                                                <div class="image" style="background-image:url(assets/img/blog/'.$doc['img'].')"></div>
-                                            </div>
-                                            <div class="col-md-8 padding-leftright-null">
-                                                <div class="content">
-                                                    <h3>'.$doc['title'].'</h3>
-                                                    <span class="date">'.$doc['timestamp']->format('Y-m-d H:i:s').'</span>
-                                                    <p>'.$doc['sort_content'].'</p>
-                                                </div>
-                                            </div>
-                                            <a href="blog.php?blog='.$doc['id'] .'" class="link"></a>
-                                        </article>
-                                    </div>';
-												}
-											}else{
-												echo '
-									<div class="row margin-leftright-null grey-background">
-										<div class="container">
-											<div class="col-md-12 padding-leftright-null text padding-bottom-null text-center">
-												<h2 class="margin-bottom-null title line center">';if($_SESSION['lang']=='hun'){echo'Legfirssebb bejegyzések';}else{echo'Recent articles';}echo'</h2>
-												<p class="heading center grey">';if($_SESSION['lang']=='hun'){echo'1Jelenleg még nincs blog bejegyzés';}else{echo'There is no article jet';}echo'</p>
-											</div>
-										</div>
-									</div>';
+                <div id="home-wrap" class="content-section fullpage-wrap " >
+					<div class="row margin-leftrisght-null grey-background">
+						<div class="container">
+							<div class="col-md-12 margin-leftright-null">
+								<!--  News Section  -->
+								<section id="news" class="page">
+									<?php 
+										if($rdb_connect){
+											if(!isset($_GET['search'])){
+												$result = r\db('nz_database')->table('blogs')->filter(array('language' => $_SESSION['lang']))->run($conn);
+												$num = r\db('nz_database')->table('blogs')->filter(array('language' => $_SESSION['lang']))->count()->run($conn);
 											}
-										}catch(Exception $e){
-											echo $e.' 
-									<div class="row margin-leftright-null grey-background">
-										<div class="container">
-											<div class="col-md-12 padding-leftright-null text padding-bottom-null text-center">
-												<h2 class="margin-bottom-null title line center">';if($_SESSION['lang']=='hun'){echo'Legfirssebb bejegyzések';}else{echo'Recent articles';}echo'</h2>
-												<p class="heading center grey">';if($_SESSION['lang']=='hun'){echo'2Jelenleg még nincs blog bejegyzés';}else{echo'There is no article jet';}echo'</p>
+											try{											
+												if($num>0){
+													echo'
+									<div class="news-items equal one-columns" id="blogWrapper">';
+													foreach ($result as $doc){
+														echo'
+										<div class="single-news one-item horizontal-news '.$doc['timestamp']->format('F').'" style="display: static !important;">
+											<article>
+												<div class="col-md-4 padding-leftright-null">
+													<div class="image" style="background-image:url(assets/img/blog/'.$doc['img'].')"></div>
+												</div>
+												<div class="col-md-8 padding-leftright-null">
+													<div class="content">
+														<h3>'.$doc['title'].'</h3>
+														<span class="date">'.$doc['timestamp']->format('Y-m-d H:i:s').'</span>
+														<p>'.$doc['sort_content'].'</p>
+													</div>
+												</div>
+												<a href="blog.php?blog='.$doc['id'] .'" class="link"></a>
+											</article>
+										</div>';
+													}
+													echo'
+									</div>';
+												}else{
+													echo '
+										<div class="row margin-leftright-null grey-background">
+											<div class="container">
+												<div class="col-md-12 padding-leftright-null text padding-bottom-null text-center">
+													<h2 class="margin-bottom-null title line center">';if($_SESSION['lang']=='hun'){echo'Legfirssebb bejegyzések';}else{echo'Recent articles';}echo'</h2>
+													<p class="heading center grey">';if($_SESSION['lang']=='hun'){echo'1Jelenleg még nincs blog bejegyzés';}else{echo'There is no article jet';}echo'</p>
+												</div>
+											</div>
+										</div>';
+												}
+											}catch(Exception $e){
+												echo $e.' 
+										<div class="row margin-leftright-null grey-background">
+											<div class="container">
+												<div class="col-md-12 padding-leftright-null text padding-bottom-null text-center">
+													<h2 class="margin-bottom-null title line center">';if($_SESSION['lang']=='hun'){echo'Legfirssebb bejegyzések';}else{echo'Recent articles';}echo'</h2>
+													<p class="heading center grey">';if($_SESSION['lang']=='hun'){echo'2Jelenleg még nincs blog bejegyzés';}else{echo'There is no article jet';}echo'</p>
+												</div>
+											</div>
+										</div>';
+											}
+										}else{
+												echo '
+										<div class="row margin-leftright-null grey-background">
+											<div class="container">
+												<div class="col-md-12 padding-leftright-null text padding-bottom-null text-center">
+													<h2 class="margin-bottom-null title line center">';if($_SESSION['lang']=='hun'){echo'Legfirssebb bejegyzések';}else{echo'Recent articles';}echo'</h2>
+													<p class="heading center grey">';if($_SESSION['lang']=='hun'){echo'3Jelenleg még nincs blog bejegyzés';}else{echo'There is no article jet';}echo'</p>
+												</div>
 											</div>
 										</div>
-									</div>';
+';
 										}
-									}else{
-											echo '
-									<div class="row margin-leftright-null grey-background">
-										<div class="container">
-											<div class="col-md-12 padding-leftright-null text padding-bottom-null text-center">
-												<h2 class="margin-bottom-null title line center">';if($_SESSION['lang']=='hun'){echo'3Legfirssebb bejegyzések';}else{echo'Recent articles';}echo'</h2>
-												<p class="heading center grey">';if($_SESSION['lang']=='hun'){echo'Jelenleg még nincs blog bejegyzés';}else{echo'There is no article jet';}echo'</p>
-											</div>
-										</div>
-									</div>';
-									}
-								?>
-                                </div>
-                            </section>
-                            <!--  END News Section  -->
-                        </div>
-                    </div>
-                </div>
-            </div>
+									?>
+								</section>
+								<!--  END News Section  -->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
             <!--  END Page Content, class footer-fixed if footer is fixed  -->
-			
-			
 			<script>
 				// When the user scrolls down 20px from the top of the document, show the button
 				function getStyle(el, styleProp) {

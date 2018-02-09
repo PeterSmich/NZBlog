@@ -56,7 +56,29 @@
                             </div>
                         </div>
 					</div>
-					<div class="row margin-leftright-null">
+					<div class="row padding-md padding-xs padding-leftright-null grey-background">
+						<div class="container">
+							<?php
+								foreach($result['images'] as $img){
+									$img_result = $result = r\db('nz_database')->table('images')->get($img)->run($conn);
+									if($img_result != null){
+										echo'
+							<div class="col-md-3 col-lg-3 col-xs-4 margin-leftright-null margin-bottom">
+								<div class="equal_size_img_yolo_kecske_turosbukta">
+									<div class="equal_size_img_yolo_kecske_turosbukta_div" >
+										<a class="example-image-link" href="assets/img/'.$img_result['id'].'" data-lightbox="'.$img_result['globaltag'].'" data-title="'.$img_result['description'].'">
+											<img  src="assets/img/'.$img_result['id'].'" alt="" />
+										</a>
+									</div>
+								</div>
+							</div>
+										';
+									}
+								}
+							?>
+						</div>
+					</div>
+					<div class="row  padding-md padding-xs padding-leftright-null">
 						<!--  Navigation  -->
 						<section id="nav" class="padding-top-null ">
 							<div class="row">
@@ -86,114 +108,6 @@
 						</section>
 						<!--  END Navigation  -->
 					</div>
-					<section id="gallery" data-isotope="load-simple">
-                        <div class=" gallery-carousel masonry-items equal five-columns">
-                            <!--  Lightbox trek -->
-                            <div class="one-item" style="padding: 2px;">
-                                <div class="image-bg" style="background-image:url(assets/img/trip1.jpg)"></div>
-                                <div class="content figure">	
-                                    <a href="assets/img/trip1.jpg" class="link lightbox"></a>
-                                </div>
-                            </div>
-                            <!--  END Lightbox trek -->
-                            <!--  Page Trek  -->
-                            <div class="one-item" style="padding: 2px;">
-                                <div class="image-bg" style="background-image:url(assets/img/trip2.jpg)"></div>
-                                <div class="content figure">
-                                    <i class="pd-icon-distance"></i>
-                                    <a href="single-trek.html" class="link lightbox"></a>
-                                </div>
-                            </div>
-                            <!--  END Page Trek  -->
-                            <div class="one-item" style="padding: 2px;">
-                                <div class="image-bg" style="background-image:url(assets/img/trip3.jpg)"></div>
-                                <div class="content figure">
-                                    <i class="pd-icon-camera"></i>
-                                    <a href="assets/img/trip3.jpg" class="link lightbox"></a>
-                                </div>
-                            </div>
-                            <div class="one-item" style="padding: 2px;">
-                                <div class="image-bg" style="background-image:url(assets/img/trip4.jpg)"></div>
-                                <div class="content figure">
-                                    <i class="pd-icon-distance"></i>
-                                    <a href="single-trek-2.html" class="link"></a>
-                                </div>
-                            </div>
-                            <div class="one-item" style="padding: 2px;">
-                                <div class="image-bg" style="background-image:url(assets/img/trip5.jpg)"></div>
-                                <div class="content figure">
-                                    <i class="pd-icon-camera"></i>
-                                    <a href="assets/img/trip5.jpg" class="link lightbox"></a>
-                                </div>
-                            </div>
-                            <div class="one-item" style="padding: 2px;">
-                                <div class="image-bg" style="background-image:url(assets/img/trip6.jpg)"></div>
-                                <div class="content figure">
-                                    <i class="pd-icon-camera"></i>
-                                    <a href="assets/img/trip6.jpg" class="link lightbox"></a>
-                                </div>
-                            </div>
-                            <div class="one-item" style="padding: 2px;">
-                                <div class="image-bg" style="background-image:url(assets/img/trip7.jpg)"></div>
-                                <div class="content figure">
-                                    <i class="pd-icon-distance"></i>
-                                    <a href="single-trek-2.html" class="link"></a>
-                                </div>
-                            </div>
-                            <div class="one-item" style="padding: 2px;">
-                                <div class="image-bg" style="background-image:url(assets/img/trip8.jpg)"></div>
-                                <div class="content figure">
-                                    <i class="pd-icon-camera"></i>
-                                    <a href="assets/img/trip8.jpg" class="link lightbox"></a>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                    <!-- Project Slider -->
-                    <div class="row margin-leftright-null padding-sm">
-                        <div class="gallery-carousel" id="gallery" data-isotope="load-simple">
-                            <div class="masonry-items equal">
-                            <div class="one-item" style="padding: 2px;">
-                                <div class="image-bg" style="background-image:url(assets/img/trip8.jpg)"></div>
-									<div class="content figure">
-										<i class="pd-icon-camera"></i>
-										<a href="assets/img/trip8.jpg" class="link lightbox"></a>
-									</div>
-								</div>
-                            </div>
-                            <div class="item">
-                                <div class="image" style="background-image:url(assets/img/trip6-small.jpg)"></div>
-                            </div>
-                            <div class="item">
-                                <div class="image" style="background-image:url(assets/img/trip7-small.jpg)"></div>
-                            </div>
-                            <div class="item">
-                                <div class="image" style="background-image:url(assets/img/trip8-small.jpg)"></div>
-                            </div>
-                            <div class="item">
-                                <div class="image" style="background-image:url(assets/img/trip9-small.jpg)"></div>
-                            </div>
-                            <div class="item">
-                                <div class="image" style="background-image:url(assets/img/trip10-small.jpg)"></div>
-                            </div>
-                            <div class="item">
-                                <div class="image" style="background-image:url(assets/img/trip11-small.jpg)"></div>
-                            </div>
-                            <div class="item">
-                                <div class="image" style="background-image:url(assets/img/trip12-small.jpg)"></div>
-                            </div>
-                            <div class="item">
-                                <div class="image" style="background-image:url(assets/img/trip2-small.jpg)"></div>
-                            </div>
-                            <div class="item">
-                                <div class="image" style="background-image:url(assets/img/trip8-small.jpg)"></div>
-                            </div>
-                            <div class="item">
-                                <div class="image" style="background-image:url(assets/img/trip9-small.jpg)"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Project Slider -->
 				</div>
 			</div>
             <!--  END Page Content, class footer-fixed if footer is fixed  -->

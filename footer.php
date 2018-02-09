@@ -124,4 +124,12 @@
         <script src="assets/js/main.js"></script>
 		<!-- Clock -->
 		<script src="assets/js/clock.js"></script>
+		<script src="assets/js/lightbox-plus-jquery.min.js"></script>
+		<script>
+			lightbox.option({
+			  'resizeDuration': 300,
+			  'wrapAround': true,
+			  'imageFadeDuration': 200,
+			})
+		</script>
     </body>
