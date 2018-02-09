@@ -193,43 +193,64 @@ include("navigation.php");
                     </div>
                     <!-- END Statistics -->
                     <!-- Carousel Gallery -->
-                    <div class="row margin-leftright-null padding-sm">
-                        <div class="gallery-carousel">
-                            <div class="item">
-                                <div class="image" style="background-image:url(assets/img/home00.jpg)"></div>
-                            </div>
-                            <div class="item">
-                                <div class="image" style="background-image:url(assets/img/home01.jpg)"></div>
-                            </div>
-                            <div class="item">
-                                <div class="image" style="background-image:url(assets/img/home02.jpg)"></div>
-                            </div>
-                            <div class="item">
-                                <div class="image" style="background-image:url(assets/img/home03.jpg)"></div>
-                            </div>
-                            <div class="item">
-                                <div class="image" style="background-image:url(assets/img/home04.jpg)"></div>
-                            </div>
-                            <div class="item">
-                                <div class="image" style="background-image:url(assets/img/home05.jpg)"></div>
-                            </div>
-                            <div class="item">
-                                <div class="image" style="background-image:url(assets/img/home06.jpg)"></div>
-                            </div>
-                            <div class="item">
-                                <div class="image" style="background-image:url(assets/img/home07.jpg)"></div>
-                            </div>
-                            <div class="item">
-                                <div class="image" style="background-image:url(assets/img/home08.jpg)"></div>
-                            </div>
-                            <div class="item">
-                                <div class="image" style="background-image:url(assets/img/home09.jpg)"></div>
-                            </div>
-                            <div class="item">
-                                <div class="image" style="background-image:url(assets/img/home10.jpg)"></div>
-                            </div>
-                        </div>
-                    </div>
+					<div class="row padding-md padding-sm padding-leftright-null">
+						<div class="container">
+							<div class="col-xs-2 col-sm-2 col-lg-2 col-md-2 col-lg-2 col-xl-2">
+								<div class="equal_size_img_yolo_kecske_turosbukta">
+									<div class="equal_size_img_yolo_kecske_turosbukta_div" >
+										<a class="example-image-link" href="assets/img/home01.jpg" data-lightbox="home-set" data-title="">
+											<img  src="assets/img/home01.jpg" alt="" />
+										</a>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-2 col-sm-2 col-lg-2 col-md-2 col-lg-2 col-xl-2">
+								<div class="equal_size_img_yolo_kecske_turosbukta">
+									<div class="equal_size_img_yolo_kecske_turosbukta_div" >
+										<a class="example-image-link" href="assets/img/home06.jpg" data-lightbox="home-set" data-title="">
+											<img src="assets/img/home06.jpg" alt="" />
+										</a>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-2 col-sm-2 col-lg-2 col-md-2 col-lg-2 col-xl-2 ">
+								<div class="equal_size_img_yolo_kecske_turosbukta">
+									<div class="equal_size_img_yolo_kecske_turosbukta_div" >
+										<a class="example-image-link" href="assets/img/home08.jpg" data-lightbox="home-set" data-title="">
+											<img src="assets/img/home08.jpg" alt="" />
+										</a>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-2 col-sm-2 col-lg-2 col-md-2 col-lg-2 col-xl-2 ">
+								<div class="equal_size_img_yolo_kecske_turosbukta">
+									<div class="equal_size_img_yolo_kecske_turosbukta_div" >
+										<a class="example-image-link" href="assets/img/home09.jpg" data-lightbox="home-set" data-title="">
+											<img  src="assets/img/home09.jpg" alt="" />
+										</a>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-2 col-sm-2 col-lg-2 col-md-2 col-lg-2 col-xl-2  ">
+								<div class="equal_size_img_yolo_kecske_turosbukta">
+									<div class="equal_size_img_yolo_kecske_turosbukta_div" >
+										<a class="example-image-link" href="assets/img/home10.jpg" data-lightbox="home-set" data-title="">
+											<img  src="assets/img/home10.jpg" alt="" />
+										</a>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-2 col-sm-2 col-lg-2 col-md-2 col-lg-2 col-xl-2  ">
+								<div class="equal_size_img_yolo_kecske_turosbukta">
+									<div class="equal_size_img_yolo_kecske_turosbukta_div" >
+										<a class="example-image-link" href="assets/img/home11.jpg" data-lightbox="home-set" data-title="">
+											<img  src="assets/img/home11.jpg" alt="" />
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
                     <!-- Carousel Gallery -->
                     <!-- Section Blog -->
 					<?php 
@@ -277,7 +298,7 @@ include("navigation.php");
                         <div class="container">
                             <div class="col-md-12 padding-leftright-null text padding-bottom-null text-center">
                                 <h2 class="margin-bottom-null title line center">';if($_SESSION['lang']=='hun'){echo'Legfirssebb bejegyzések';}else{echo'Recent articles';}echo'</h2>
-                                <p class="heading center grey">';if($_SESSION['lang']=='hun'){echo'Jelenleg még nincs blog bejegyzés';}else{echo'There is no article jet';}echo'</p>
+                                <p class="heading center grey">';if($_SESSION['lang']=='hun'){echo'Jelenleg még nincs blog bejegyzés';}else{echo'There are no articles yet';}echo'</p>
                             </div>
 						</div>
 					</div>';
@@ -288,7 +309,7 @@ include("navigation.php");
                         <div class="container">
                             <div class="col-md-12 padding-leftright-null text padding-bottom-null text-center">
                                 <h2 class="margin-bottom-null title line center">';if($_SESSION['lang']=='hun'){echo'Legfirssebb bejegyzések';}else{echo'Recent articles';}echo'</h2>
-                                <p class="heading center grey">';if($_SESSION['lang']=='hun'){echo'Jelenleg nincs blog bejegyzés';}else{echo'There is no article';}echo'</p>
+                                <p class="heading center grey">';if($_SESSION['lang']=='hun'){echo'Jelenleg nincs blog bejegyzés';}else{echo'There are no articles';}echo'</p>
                             </div>
 						</div>
 					</div>';
@@ -299,7 +320,7 @@ include("navigation.php");
                         <div class="container">
                             <div class="col-md-12 padding-leftright-null text padding-bottom-null text-center">
                                 <h2 class="margin-bottom-null title line center">';if($_SESSION['lang']=='hun'){echo'Legfirssebb bejegyzések';}else{echo'Recent articles';}echo'</h2>
-                                <p class="heading center grey">';if($_SESSION['lang']=='hun'){echo'Jelenleg nincs blog bejegyzés';}else{echo'There is no article';}echo'</p>
+                                <p class="heading center grey">';if($_SESSION['lang']=='hun'){echo'Jelenleg nincs blog bejegyzés';}else{echo'There are no articles';}echo'</p>
                             </div>
 						</div>
 					</div>';
@@ -346,28 +367,32 @@ include("navigation.php");
                                    <p class="heading center grey margin-bottom-null"><?php if($_SESSION['lang'] == 'hun'){echo'A 4 kalandozó';}else{echo'The 4 explorers';}?></p>
                                </div>
                                <div class="col-md-3 single-person">
-                                   <div class="content">
+                                   <div class="content" >
                                        <img src="assets/img/balintczucz.jpg" alt="BC">
                                        <ul class="social">
                                            <li><a href="https://instagram.com/balintczucz"><i class="icon ion-social-instagram"></i></a></li>
                                            <li><a href="https://www.youtube.com/channel/UCm_j1KDKKAywYH-PJ1XE4HA/"><i class="fa fa-youtube-play"></i></a></li>
                                        </ul>
                                    </div>
-                                   <div class="description text-center">
-                                       <h5><?php if($_SESSION['lang'] == 'hun'){echo'Czucz Bálint';}else{echo'Bálint Czucz';}?></h5>
-                                   </div>
+								   <a href="contact.php">
+									   <div class="description text-center">
+										   <h5><?php if($_SESSION['lang'] == 'hun'){echo'Czucz Bálint';}else{echo'Bálint Czucz';}?></h5>
+									   </div>
+									</a>
                                </div>
                                <div class="col-md-3 single-person">
                                    <div class="content">
                                        <img src="assets/img/andraskovach.jpg" alt="AK">
                                        <ul class="social">
-                                           <li><a href="htpps://instagram.com/andras.kovach"><i class="icon ion-social-instagram"></i></a></li>
+                                           <li><a href="https://instagram.com/andras.kovach"><i class="icon ion-social-instagram"></i></a></li>
                                            <li><a href="https://www.youtube.com/channel/UCm_j1KDKKAywYH-PJ1XE4HA/"><i class="fa fa-youtube-play"></i></a></li>
                                        </ul>
                                    </div>
-                                   <div class="description text-center">
-                                       <h5><?php if($_SESSION['lang'] == 'hun'){echo'Kovách András';}else{echo'András Kovách';}?></h5>
-                                   </div>
+								   <a href="contact.php">
+									   <div class="description text-center">
+										   <h5><?php if($_SESSION['lang'] == 'hun'){echo'Kovách András';}else{echo'András Kovách';}?></h5>
+									   </div>
+									</a>
                                </div>
                                <div class="col-md-3 single-person">
                                    <div class="content">
@@ -376,9 +401,11 @@ include("navigation.php");
                                            <li><a href="https://www.youtube.com/channel/UCm_j1KDKKAywYH-PJ1XE4HA/"><i class="fa fa-youtube-play"></i></a></li>
                                        </ul>
                                    </div>
-                                   <div class="description text-center">
-                                       <h5><?php if($_SESSION['lang'] == 'hun'){echo'Kovách Tamás';}else{echo'Tamás Kovách';}?></h5>
-                                   </div>
+								   <a href="contact.php">
+									   <div class="description text-center">
+										   <h5><?php if($_SESSION['lang'] == 'hun'){echo'Kovách Tamás';}else{echo'Tamás Kovách';}?></h5>
+									   </div>
+									</a>
                                </div>
                                <div class="col-md-3 single-person">
                                    <div class="content">
@@ -387,9 +414,11 @@ include("navigation.php");
                                            <li><a href="https://www.youtube.com/channel/UCm_j1KDKKAywYH-PJ1XE4HA/"><i class="fa fa-youtube-play"></i></a></li>
                                        </ul>
                                    </div>
-                                   <div class="description text-center">
-                                       <h5><?php if($_SESSION['lang'] == 'hun'){echo'Kovách Péter';}else{echo'Péter Kovách';}?></h5>
-                                   </div>
+								   <a href="contact.php">
+									   <div class="description text-center">
+										   <h5><?php if($_SESSION['lang'] == 'hun'){echo'Kovách Péter';}else{echo'Péter Kovách';}?></h5>
+									   </div>
+									</a>
                                </div>
                            </div>
                        </div>
