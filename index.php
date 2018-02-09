@@ -74,7 +74,7 @@ include("navigation.php");
                 <!--  END Slider  -->
                 <div id="home-wrap" class="content-section fullpage-wrap">
                     <!-- Section Clock -->
-                    <div class="row margin-leftrisght-null">
+                    <div class="row margin-leftright-null">
                         <div class="container">
                             <div class="col-md-12 padding-leftright-null">
                                 <div class="text text-center">
@@ -196,37 +196,37 @@ include("navigation.php");
                     <div class="row margin-leftright-null padding-sm">
                         <div class="gallery-carousel">
                             <div class="item">
-                                <div class="image" style="background-image:url(assets/img/trip5-small.jpg)"></div>
+                                <div class="image" style="background-image:url(assets/img/home00.jpg)"></div>
                             </div>
                             <div class="item">
-                                <div class="image" style="background-image:url(assets/img/trip6-small.jpg)"></div>
+                                <div class="image" style="background-image:url(assets/img/home01.jpg)"></div>
                             </div>
                             <div class="item">
-                                <div class="image" style="background-image:url(assets/img/trip7-small.jpg)"></div>
+                                <div class="image" style="background-image:url(assets/img/home02.jpg)"></div>
                             </div>
                             <div class="item">
-                                <div class="image" style="background-image:url(assets/img/trip8-small.jpg)"></div>
+                                <div class="image" style="background-image:url(assets/img/home03.jpg)"></div>
                             </div>
                             <div class="item">
-                                <div class="image" style="background-image:url(assets/img/trip9-small.jpg)"></div>
+                                <div class="image" style="background-image:url(assets/img/home04.jpg)"></div>
                             </div>
                             <div class="item">
-                                <div class="image" style="background-image:url(assets/img/trip10-small.jpg)"></div>
+                                <div class="image" style="background-image:url(assets/img/home05.jpg)"></div>
                             </div>
                             <div class="item">
-                                <div class="image" style="background-image:url(assets/img/trip11-small.jpg)"></div>
+                                <div class="image" style="background-image:url(assets/img/home06.jpg)"></div>
                             </div>
                             <div class="item">
-                                <div class="image" style="background-image:url(assets/img/trip12-small.jpg)"></div>
+                                <div class="image" style="background-image:url(assets/img/home07.jpg)"></div>
                             </div>
                             <div class="item">
-                                <div class="image" style="background-image:url(assets/img/trip2-small.jpg)"></div>
+                                <div class="image" style="background-image:url(assets/img/home08.jpg)"></div>
                             </div>
                             <div class="item">
-                                <div class="image" style="background-image:url(assets/img/trip8-small.jpg)"></div>
+                                <div class="image" style="background-image:url(assets/img/home09.jpg)"></div>
                             </div>
                             <div class="item">
-                                <div class="image" style="background-image:url(assets/img/trip9-small.jpg)"></div>
+                                <div class="image" style="background-image:url(assets/img/home10.jpg)"></div>
                             </div>
                         </div>
                     </div>
@@ -307,7 +307,7 @@ include("navigation.php");
 					?>
                     <!-- END Section Blog -->
 					<!-- Section map -->
-					<div id="home-wrap" class="row text-center margin-leftrisght-null">
+					<div class="row text-center margin-leftrisght-null">
 						<div class="col-md-12 padding-leftright-null text padding-bottom-null text-center">
 							<h2 class="margin-bottom-null title line center"><?php if($_SESSION['lang'] == 'hun'){echo'Terveink';}else{echo'Our Plans';}?></h2>
 							<p class="heading center grey margin-bottom-null"></p>
@@ -317,7 +317,7 @@ include("navigation.php");
 					<!-- END Section Map -->
                     <!--  Section Image Background with overlay  -->
                     <div class="row margin-leftright-null grey-background">
-                        <div class="bg-img overlay simple-parallax responsive" style="background-image:url(assets/img/testimonials.jpg)">
+                        <div class="bg-img overlay simple-parallax responsive" style="background-image:url(assets/img/home.jpg)">
                            <div class="container">
                                <!-- Testimonials -->
                                <section class="testimonials-carousel-simple col-md-12 text padding-bottom-null">
@@ -349,19 +349,19 @@ include("navigation.php");
                                    <div class="content">
                                        <img src="assets/img/balintczucz.jpg" alt="BC">
                                        <ul class="social">
-                                           <li><a href="instagram.com/balintczucz"><i class="icon ion-social-instagram"></i></a></li>
+                                           <li><a href="https://instagram.com/balintczucz"><i class="icon ion-social-instagram"></i></a></li>
                                            <li><a href="https://www.youtube.com/channel/UCm_j1KDKKAywYH-PJ1XE4HA/"><i class="fa fa-youtube-play"></i></a></li>
                                        </ul>
                                    </div>
                                    <div class="description text-center">
-                                       <h5><?php if($_SESSION['lang'] == 'hun'){echo'Czucz Bálit';}else{echo'Bálint Czucz';}?></h5>
+                                       <h5><?php if($_SESSION['lang'] == 'hun'){echo'Czucz Bálint';}else{echo'Bálint Czucz';}?></h5>
                                    </div>
                                </div>
                                <div class="col-md-3 single-person">
                                    <div class="content">
                                        <img src="assets/img/andraskovach.jpg" alt="AK">
                                        <ul class="social">
-                                           <li><a href="instagram.com/andras.kovach"><i class="icon ion-social-instagram"></i></a></li>
+                                           <li><a href="htpps://instagram.com/andras.kovach"><i class="icon ion-social-instagram"></i></a></li>
                                            <li><a href="https://www.youtube.com/channel/UCm_j1KDKKAywYH-PJ1XE4HA/"><i class="fa fa-youtube-play"></i></a></li>
                                        </ul>
                                    </div>
@@ -397,6 +397,12 @@ include("navigation.php");
                     <!--  END Team  -->
 
                     <!--  Sponsor  -->
+					<div class="row text-center margin-leftrisght-null grey-background">
+						<div class="col-md-12 padding-leftright-null text text-center">
+						   <h2 class="margin-bottom-null title line center"><?php if($_SESSION['lang'] == 'hun'){echo'Támogatóink';}else{echo'Our Sponsors';}?></h2>
+						   <p class="heading center grey margin-bottom-null"><?php if($_SESSION['lang'] == 'hun'){echo'Egyenlőre még nincsen támogatónk, legyen Ön az első! :)';}else{echo'It is lonely here, be the first one how is supporting us! :)';}?></p>
+					   </div>
+				   </div>
 					<!--
                     <div class="row no-margin">
                         <div class="container text">

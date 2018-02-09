@@ -11,14 +11,14 @@
                             <ul class="sitemap">
                                 <li><a href="index.php">Home</a></li>
                                 <li><a href="blog.php">Blog</a></li>
-                                <li><a href="#">Galeira</a></li>
+                                <li><a href="#">Galeria</a></li>
                                 <li><a href="contact.php">Contact</a></li>
                             </ul>
                         </div>
                         <div class="col-sm-4 col-md-4 padding-leftright-null">
                             <h6 class="heading white margin-bottom-extrasmall">Contact Us</h6>
                             <ul class="info">
-                                <li>Mail <a href="#">info.thereandback@gmail</a></li>
+                                <li>Mail <a href="#">info@thereandback.hu</a></li>
                             </ul>
                         </div>
                         <!-- <div class="col-md-4 padding-leftright-null">
@@ -65,7 +65,7 @@
                         <div class="col-sm-4 col-md-4 padding-leftright-null">
                             <h6 class="heading white margin-bottom-extrasmall">Lépj velünk kapcsolatba</h6>
                             <ul class="info">
-                                <li>Mail <a href="#">info.thereandback@gmail.com</a></li>
+                                <li>Mail <a href="#">info@thereandback.hu</a></li>
                             </ul>
                         </div>
                         <!-- <div class="col-md-4 padding-leftright-null">
