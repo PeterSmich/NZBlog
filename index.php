@@ -259,11 +259,11 @@ include("navigation.php");
                                         <div class="col-md-6 padding-leftright-null">
                                             <div class="content">
                                                 <h3>'.$doc['title'].'</h3>
-                                                <span class="date">'.$doc['timestamp']->format('Y-m-d H:i:s').'</span>
+                                                <span class="date">'.$doc['timestamp']->format('Y-m-d H').'</span>
                                                 <p>'.$doc['sort_content'].'</p>
                                             </div>
                                         </div>
-                                        <a href="blog.php?blog="'.$doc['title'] .'class="link"></a>
+                                        <a href="blog.php?blog='.$doc['id'] .'" class="link"></a>
                                     </article>
                                 </div>';									
 									}
