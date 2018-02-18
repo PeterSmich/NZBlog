@@ -1,6 +1,6 @@
             
             <!--  Footer. Class fixed for fixed footer  -->
-            <footer class="fixed full-width">
+            <footer class="fixed full-width" id="footerID">
 			<?php 
 				if($_SESSION['lang'] == 'en'){
 					echo '

@@ -60,7 +60,7 @@
 						<div class="container">
 							<?php
 								foreach($result['images'] as $img){
-									$img_result = $result = r\db('nz_database')->table('images')->get($img)->run($conn);
+									$img_result = r\db('nz_database')->table('images')->get($img)->run($conn);
 									if($img_result != null){
 										echo'
 							<div class="col-md-3 col-lg-3 col-xs-4 margin-leftright-null margin-bottom">

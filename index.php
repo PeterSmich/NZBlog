@@ -24,7 +24,6 @@
 
 <html lang="en">
     
-<!-- Mirrored from wearepuredesign.com/dolomia/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 15 Jan 2018 19:44:11 GMT -->
 
 <?php
 $page_title = "NZ Blog | Home";
@@ -256,7 +255,7 @@ include("navigation.php");
 					<?php 
 						if($rdb_connect){
 							try{
-								$result = r\db('nz_database')->table('blogs')->filter(array('language' => $_SESSION['lang']))->run($conn);
+								$result = r\db('nz_database')->table('blogs')->filter(array('language' => $_SESSION['lang']))->orderBy( r\desc('timestamp'))->run($conn);
 								$num = r\db('nz_database')->table('blogs')->filter(array('language' => $_SESSION['lang']))->count()->run($conn);
 								if($num>0){
 									echo '
@@ -460,5 +459,4 @@ include("navigation.php");
 	require_once('footer.php')
 ?>
 
-<!-- Mirrored from wearepuredesign.com/dolomia/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 15 Jan 2018 19:46:28 GMT -->
 </html>
