@@ -26,9 +26,9 @@
 	
 
 <?php
-$page_title = "NZ Blog | Blog";
+$page_title = "NZ Blog | Gallery";
 $page_level = "";
-$page_type = "blog";
+$page_type = "gallery";
 include("header.php");
 include("navigation.php");
 ?>
@@ -100,65 +100,29 @@ include("navigation.php");
 										</form>
 									</div>
 									<div class="widget-wrapper">
-										<h5>Categories</h5>
+										<h5><?php if($_SESSION['lang'] == 'hun'){echo'Kategóriák';}else{echo'Categories';}?></h5>
 										<?php
 											$result = r\db('nz_database')->table('images')->group('globaltag')->run($conn);
 										echo'<ul class="widget-categories">
 										';
 											foreach($result['data'] as $res){
-												echo'<li><nav><a href="#'.$res[0].'">'.$res[0].'</a></nav></li>
+												echo'<li><nav><a href="#'.$res[0].'"><h5>'.$res[0].'</h5></a></nav></li>
 												';
 											}
 										echo'</ul>';
 										?>
 									</div>
 									<div class="widget-wrapper">
-										<h5>Recent Post</h5>
+										<h5><?php if($_SESSION['lang'] == 'hun'){echo'Cimkék';}else{echo'Tags';}?></h5>
 										<ul class="recent-posts">
-											<li>
-												<img src="assets/img/trip1.jpg" alt="">
-												<div class="content">
-													<a href="#">
-														<span class="meta">
-															February 12, 2016
-														</span>
-														<p>Post with Sidebar</p>
-													</a>
-												</div>
-											</li>
-											<li>
-												<img src="assets/img/trip2.jpg" alt="">
-												<div class="content">
-													<a href="#">
-														<span class="meta">
-															February 12, 2016
-														</span>
-														<p>Post with Video</p>
-													</a>
-												</div>
-											</li>
-											<li>
-												<img src="assets/img/trip3.jpg" alt="">
-												<div class="content">
-													<a href="#">
-														<span class="meta">
-															February 12, 2016
-														</span>
-														<p>Post with Audio</p>
-													</a>
-												</div>
-											</li>
-											<li>
-												<img src="assets/img/trip4.jpg" alt="">
-												<div class="content">
-													<a href="#">
-														<span class="meta">
-															February 12, 2016
-														</span>
-														<p>Post with Gallery</p>
-													</a>
-												</div>
-											</li>
+											<li><a href="gallery.php?tag=all"><?php if($_SESSION['lang'] == 'hun'){echo'összes';}else{echo'all';}?></a></li>
+										<?php
+											$tags = r\db('nz_database')->table('tags')->run($conn);
+											foreach($tags as $tag){
+												echo'
+											<li><a href="gallery.php?tag='.$tag['tag'].'">'.$tag['tag'].'</a></li>';
+											}
+										?>
 										</ul>
 									</div>
 								</aside>
@@ -175,7 +139,9 @@ include("navigation.php");
                                 <p class="heading center grey margin-bottom-null"></p>
                             </div>';
 									foreach($img_result as $img){
-										echo'
+										if(isset($_GET['tag']) && $_GET['tag'] != 'all'){
+											if(in_array($_GET['tag'], $img['tags'])){
+												echo'
 							<div class="col-md-3 col-lg-3 col-xs-4">
 								<div class="equal_size_img_yolo_kecske_turosbukta">
 									<div class="equal_size_img_yolo_kecske_turosbukta_div" >
@@ -185,6 +151,19 @@ include("navigation.php");
 									</div>
 								</div>
 							</div>';
+											}
+										}else{
+											echo'
+							<div class="col-md-3 col-lg-3 col-xs-4">
+								<div class="equal_size_img_yolo_kecske_turosbukta">
+									<div class="equal_size_img_yolo_kecske_turosbukta_div" >
+										<a class="example-image-link" href="assets/img/'.$img['id'].'" data-lightbox="'.$img['globaltag'].'" data-title="'.$img['description'].'">
+											<img  src="assets/img/'.$img['id'].'" alt="" />
+										</a>
+									</div>
+								</div>
+							</div>';
+										}
 									}
 									echo'</div>';
 								}
