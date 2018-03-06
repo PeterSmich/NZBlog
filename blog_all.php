@@ -4,7 +4,7 @@
                 <!--  Slider  -->
                 <div id="flexslider" class="fullpage-wrap small">
                     <ul class="slides">
-                        <li style="background-image:url(assets/img/blog1.jpeg)">
+                        <li style="background-image:url(assets/img/blog1.jpg)">
                             <div class="container text text-center">
                                 <?php
 									if($_SESSION['lang'] == 'hun') {
