@@ -115,7 +115,7 @@
 									<?php 
 										if($rdb_connect){
 											if(!isset($_GET['search'])){
-												$result = r\db('nz_database')->table('blogs')->filter(array('language' => $_SESSION['lang']))->run($conn);
+												$result = r\db('nz_database')->table('blogs')->filter(array('language' => $_SESSION['lang']))->orderBy( r\desc('timestamp'))->run($conn);
 												$num = r\db('nz_database')->table('blogs')->filter(array('language' => $_SESSION['lang']))->count()->run($conn);
 											}
 											try{											
@@ -127,11 +127,12 @@
 										<div class="single-news one-item horizontal-news '.$doc['timestamp']->format('F').' '.$doc['timestamp']->format('Y').'" style="display: static !important;">
 											<article>
 												<div class="col-md-4 padding-leftright-null">
-													<div class="image" style="background-image:url(assets/img/blog/'.$doc['img'].')"></div>
+													<div class="image" style="background-image:url(assets/img/'.$doc['img'].')"></div>
 												</div>
 												<div class="col-md-8 padding-leftright-null">
 													<div class="content">
 														<h3>'.$doc['title'].'</h3>
+														<h5>'.$doc['subtitle'].'</h5>
 														<span class="date">'.$doc['timestamp']->format('Y-m-d H:i:s').'</span>
 														<p>'.$doc['sort_content'].'</p>
 													</div>
@@ -217,11 +218,16 @@
 				  }
 				}
 				window.onscroll = function() {scrollFunction()};
-
-				function scrollFunction() {				
-					if(screen.width < 902){
+				window.onload = hideElement;
+				
+				function hideElement(){
+					if(screen.width < 992  || window.innerWidth < 992){
 						document.getElementById("filters").style.display = "none";
 					}
+				}
+				
+				function scrollFunction() {				
+					
 					var pd = getStyle(document.getElementById("filterStrip"), "height");
 					var tp = getStyle(document.getElementById("header"), "height");
 					var height = parseInt((getStyle(document.getElementById("flexslider"), "height").match(/\d+/)[0]))-parseInt(tp.match(/\d+/)[0]);
@@ -247,7 +253,7 @@
 				
 				function filterMonths(filter, sw){
 					if(sw == 0){
-						var months = <?php if($jsonm===''){echo'[]';}else{echo $jsonm; }?>;
+						var months = <?php if($jsonm==''){echo'[]';}else{echo $jsonm; }?>;
 						if (filter == 'all'){
 							for(m in months){
 								var e = document.getElementsByClassName(months[m]);
@@ -273,7 +279,7 @@
 							}
 						}
 					}else{
-						var years = <?php if($jsony===''){echo'[]';}else{echo $jsony; }?>;
+						var years = <?php if($jsony==''){echo'[]';}else{echo $jsony; }?>;
 						if (filter == 'all'){
 							for(y in years){
 								var e = document.getElementsByClassName(years[y]);

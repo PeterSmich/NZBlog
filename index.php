@@ -24,7 +24,6 @@
 
 <html lang="en">
     
-<!-- Mirrored from wearepuredesign.com/dolomia/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 15 Jan 2018 19:44:11 GMT -->
 
 <?php
 $page_title = "NZ Blog | Home";
@@ -185,7 +184,7 @@ include("navigation.php");
                                     <div class="text">
                                         <i class="pd-icon-distance service margin-bottom-null"></i>
                                         <h6 class="heading  margin-bottom-extrasmall"><?php if($_SESSION['lang']=='hun'){echo 'Vezettünk';}else{echo 'Drove';}?></h6>
-                                        <p class="margin-bottom-null"><?php if($_SESSION['lang']=='hun'){echo $km.' Kilómetert';}else{echo $km.' Kilometer';}?></p>
+                                        <p class="margin-bottom-null"><?php if($_SESSION['lang']=='hun'){echo $km.' Kilométert';}else{echo $km.' Kilometer';}?></p>
                                     </div>
                                 </div>
                             </div>
@@ -256,7 +255,7 @@ include("navigation.php");
 					<?php 
 						if($rdb_connect){
 							try{
-								$result = r\db('nz_database')->table('blogs')->filter(array('language' => $_SESSION['lang']))->run($conn);
+								$result = r\db('nz_database')->table('blogs')->filter(array('language' => $_SESSION['lang']))->orderBy( r\desc('timestamp'))->run($conn);
 								$num = r\db('nz_database')->table('blogs')->filter(array('language' => $_SESSION['lang']))->count()->run($conn);
 								if($num>0){
 									echo '
@@ -275,7 +274,7 @@ include("navigation.php");
                                 <div class="col-sm-6 single-news horizontal-news">
                                     <article>
                                         <div class="col-md-6 padding-leftright-null">
-                                            <div class="image" style="background-image:url(assets/img/blog/'.$doc['img'].')"></div>
+                                            <div class="image" style="background-image:url(assets/img/'.$doc['img'].')"></div>
                                         </div>
                                         <div class="col-md-6 padding-leftright-null">
                                             <div class="content">
@@ -364,7 +363,7 @@ include("navigation.php");
                            <div class="row">
                                <div class="col-md-12 padding-leftright-null padding-onlybottom-md text-center">
                                    <h2 class="margin-bottom-null title line center"><?php if($_SESSION['lang'] == 'hun'){echo'Egy kicsit magunkról';}else{echo'A bit about us';}?></h2>
-                                   <p class="heading center grey margin-bottom-null"><?php if($_SESSION['lang'] == 'hun'){echo'A 4 kalandozó';}else{echo'The 4 explorers';}?></p>
+                                   <p class="heading center grey margin-bottom-null"><?php if($_SESSION['lang'] == 'hun'){echo'A 4 kalandor';}else{echo'The 4 explorers';}?></p>
                                </div>
                                <div class="col-md-3 single-person">
                                    <div class="content" >
@@ -432,13 +431,12 @@ include("navigation.php");
 						   <p class="heading center grey margin-bottom-null"><?php if($_SESSION['lang'] == 'hun'){echo'Egyenlőre még nincsen támogatónk, legyen Ön az első! :)';}else{echo'It is lonely here, be the first one how is supporting us! :)';}?></p>
 					   </div>
 				   </div>
-					<!--
                     <div class="row no-margin">
                         <div class="container text">
                             <div class="col-md-12 sponsor-carousel padding-leftright-null">
-                                <div class="item">
-                                    <img class="center" src="assets/img/sponsor1.png" alt="client logo">
-                                </div>
+                                <div class="item" >
+                                    <img class="center" href="https://lowealpine.com" src="assets/img/lowealpine.png" alt="client logo">
+                                </div><!--
                                 <div class="item">
                                     <img class="center" src="assets/img/sponsor2.png" alt="client logo">
                                 </div>
@@ -447,11 +445,10 @@ include("navigation.php");
                                 </div>
                                 <div class="item">
                                     <img class="center" src="assets/img/sponsor4.png" alt="client logo">
-                                </div>
+                                </div>-->
                             </div>
                         </div>
                     </div>
-					-->
                     <!--  Sponsor  -->
                 </div>
             </div>
@@ -460,5 +457,4 @@ include("navigation.php");
 	require_once('footer.php')
 ?>
 
-<!-- Mirrored from wearepuredesign.com/dolomia/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 15 Jan 2018 19:46:28 GMT -->
 </html>

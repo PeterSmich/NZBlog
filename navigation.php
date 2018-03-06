@@ -39,7 +39,7 @@
                                         <a href=blog.php';if($page_type == "blog"){echo ' class="active-item"';} echo'>Blog</a>
                                     </li>
                                     <li>
-                                        <a href="javascript:void(0)" ';if($page_type == "galery"){echo ' class="active-item"';} echo'>Képgaléria</a>
+                                        <a href=gallery.php ';if($page_type == "gallery"){echo ' class="active-item"';} echo'>Képgaléria</a>
                                     </li>
                                     <li>
                                         <a href="javascript:void(0)" ';if($page_type == "statistics"){echo ' class="active-item"';} echo'>Statisztikák</a>
@@ -59,7 +59,7 @@
                                         <a href=blog.php ';if($page_type == "blog"){echo ' class="active-item"';} echo'>Blog</a>
                                     </li>
                                     <li>
-                                        <a href="javascript:void(0)" ';if($page_type == "gallery"){echo ' class="active-item"';} echo'>Gallery</a>
+                                        <a href=gallery.php ';if($page_type == "gallery"){echo ' class="active-item"';} echo'>Gallery</a>
                                     </li>
                                     <li>
                                         <a href="javascript:void(0)" ';if($page_type == "statistics"){echo ' class="active-item"';} echo'>Statistics</a>

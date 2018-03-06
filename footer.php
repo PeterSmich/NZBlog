@@ -1,6 +1,6 @@
             
             <!--  Footer. Class fixed for fixed footer  -->
-            <footer class="fixed full-width">
+            <footer class="fixed full-width" id="footerID">
 			<?php 
 				if($_SESSION['lang'] == 'en'){
 					echo '
@@ -11,7 +11,7 @@
                             <ul class="sitemap">
                                 <li><a href="index.php">Home</a></li>
                                 <li><a href="blog.php">Blog</a></li>
-                                <li><a href="#">Gallery</a></li>
+                                <li><a href="gallery.php">Gallery</a></li>
                                 <li><a href="contact.php">Contact</a></li>
                             </ul>
                         </div>
@@ -58,7 +58,7 @@
                             <ul class="sitemap">
                                 <li><a href="index.php">Kezdőlap</a></li>
                                 <li><a href="blog.php">Blog</a></li>
-                                <li><a href="#">Képgléria</a></li>
+                                <li><a href="gallery.php">Képgléria</a></li>
                                 <li><a href="contact.php">Kapcsolatok</a></li>
                             </ul>
                         </div>

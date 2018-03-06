@@ -13,8 +13,6 @@
 
 <html lang="en">
     
-<!-- Mirrored from wearepuredesign.com/dolomia/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 15 Jan 2018 19:44:11 GMT -->
-
 <?php
 $page_title = "NZ Blog | Contact";
 $page_level = "";
@@ -120,5 +118,4 @@ include("navigation.php");
 	require_once('footer.php')
 ?>
 
-<!-- Mirrored from wearepuredesign.com/dolomia/blog-classic.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 15 Jan 2018 19:49:10 GMT -->
 </html>
