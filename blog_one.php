@@ -59,15 +59,14 @@
 					<div class="row padding-md padding-xs padding-leftright-null grey-background">
 						<div class="container">
 							<?php
-								foreach($result['images'] as $img){
-									$img_result = r\db('nz_database')->table('images')->get($img)->run($conn);
-									if($img_result != null){
+								$img_result = r\db('nz_database')->table('images')->filter(array('globaltag'=>$result['images'])->run($conn);	
+								foreach($img_result as $img){
 										echo'
 							<div class="col-md-3 col-lg-3 col-xs-4 margin-leftright-null margin-bottom">
 								<div class="equal_size_img_yolo_kecske_turosbukta">
 									<div class="equal_size_img_yolo_kecske_turosbukta_div" >
-										<a class="example-image-link" href="assets/img/'.$img_result['id'].'" data-lightbox="'.$img_result['globaltag'].'" data-title="'.$img_result['description'].'">
-											<img  src="assets/img/'.$img_result['id'].'" alt="" />
+										<a class="example-image-link" href="assets/img/'.$img['id'].'" data-lightbox="'.$img['globaltag'].'" data-title="'.$img['description'].'">
+											<img  src="assets/img/'.$img['id'].'" alt="" />
 										</a>
 									</div>
 								</div>

@@ -127,11 +127,12 @@
 										<div class="single-news one-item horizontal-news '.$doc['timestamp']->format('F').' '.$doc['timestamp']->format('Y').'" style="display: static !important;">
 											<article>
 												<div class="col-md-4 padding-leftright-null">
-													<div class="image" style="background-image:url(assets/img/blog/'.$doc['img'].')"></div>
+													<div class="image" style="background-image:url(assets/img/'.$doc['img'].')"></div>
 												</div>
 												<div class="col-md-8 padding-leftright-null">
 													<div class="content">
 														<h3>'.$doc['title'].'</h3>
+														<h5>'.$doc['subtitle'].'</h5>
 														<span class="date">'.$doc['timestamp']->format('Y-m-d H:i:s').'</span>
 														<p>'.$doc['sort_content'].'</p>
 													</div>
